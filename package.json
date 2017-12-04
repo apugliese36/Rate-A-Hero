@@ -1,6 +1,7 @@
 {
   "name": "rate-a-hero",
   "private": true,
+  "engines": {"node":">=4.0"},
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "react": "^15.6.1",
@@ -17,7 +18,7 @@
   "scripts": {
     "heroku-postbuild": "NODE_ENV=production npm run webpack -- -p",
     "test": "node_modules/.bin/karma start react/karma.conf.js",
-    "start": "yarn run webpack -- --watch",
+    "start": "npm run webpack -- --watch",
     "webpack": "node_modules/.bin/webpack --config ./react/webpack.config.js"
   },
   "author": "",
