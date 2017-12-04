@@ -48,4 +48,6 @@ Things you may want to cover:
 
 [![Code Climate](https://codeclimate.com/github/apugliese36/rate-a-hero/badges/gpa.svg)](https://codeclimate.com/github/apugliese36/rate-a-hero)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
+
 [![Coverage Status](https://coveralls.io/repos/github/apugliese36/Rate-A-Hero/badge.svg?branch=master)](https://coveralls.io/github/apugliese36/Rate-A-Hero?branch=master)
