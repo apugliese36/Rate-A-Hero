@@ -1,7 +1,9 @@
 {
   "name": "rate-a-hero",
   "private": true,
-  "engines": {"node":">=4.0"},
+  "engines": {
+    "node": ">=4.0"
+  },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "react": "^15.6.1",
