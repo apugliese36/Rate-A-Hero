@@ -6,7 +6,7 @@ class Api::V1::SuperheroesController < ApiController
   end
 
   def show
-    render json: { superhero: Superhero.find(params[:id]) }
+    render json: Superhero.find(params[:id]) 
   end
 
 end
