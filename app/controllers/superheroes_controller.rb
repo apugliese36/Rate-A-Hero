@@ -4,4 +4,7 @@ class SuperheroesController < ApplicationController
 
   end
 
+  def show
+  end
+
 end
