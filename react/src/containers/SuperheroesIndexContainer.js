@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SuperheroTileComponent from "../components/SuperheroTileComponent"
+import SuperheroShowContainer from "./SuperheroShowContainerf"
 
 class SuperheroesIndexContainer extends Component {
   constructor(props) {
@@ -34,8 +35,12 @@ class SuperheroesIndexContainer extends Component {
     let superheroes = this.state.superheroes.map(superhero => {
       return (
         <SuperheroTileComponent
+          key={superhero.id}
+          id={superhero.id}
           name={superhero.name}
           imageUrl={superhero.image_url}
+          backstory={superhero.backstory}
+          superpower={superhero.superpower}
         />
       )
     })
