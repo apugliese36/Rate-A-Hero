@@ -1,28 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::SuperheroesController, type: :controller do
-  let!(:magneto) { Superhero.create(
-    name:'Magneto',
-    superpower:'BENDS METAL',
-    backstory:'so sad',
-    image_url:'magneto.com')
-  }
-  let!(:hulk) { Superhero.create(
-    name:'Hulk',
-    superpower:'very strong',
-    backstory:'epic',
-    image_url:'hulk.com')
-  }
+  let!(:magneto) {
+    Superhero.create(
+    name: 'Magneto',
+    superpower: 'BENDS METAL',
+    backstory: 'so sad',
+    image_url: 'magneto.com'
+  )}
+  let!(:hulk) {
+    Superhero.create(
+    name: 'Hulk',
+    superpower: 'very strong',
+    backstory: 'epic',
+    image_url: 'hulk.com'
+  )}
 
-  describe "GET#index" do
-    it "returns a list of all the superheroes" do
+  describe 'GET#index' do
+    it 'returns a list of all the superheroes' do
 
       get:index
-
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
-      expect(response.content_type).to eq(application/json)
+      expect(response.content_type).to eq('application/json')
 
       expect(returned_json.length).to eq 2
       expect(returned_json[0]['name']).to eq 'Magneto'
