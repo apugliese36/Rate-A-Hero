@@ -3,18 +3,20 @@ require 'rails_helper'
 RSpec.describe Api::V1::SuperheroesController, type: :controller do
   let!(:magneto) {
     Superhero.create(
-    name: 'Magneto',
-    superpower: 'BENDS METAL',
-    backstory: 'so sad',
-    image_url: 'magneto.com'
-  )}
+      name: 'Magneto',
+      superpower: 'BENDS METAL',
+      backstory: 'so sad',
+      image_url: 'magneto.com'
+  )
+}
   let!(:hulk) {
     Superhero.create(
-    name: 'Hulk',
-    superpower: 'very strong',
-    backstory: 'epic',
-    image_url: 'hulk.com'
-  )}
+      name: 'Hulk',
+      superpower: 'very strong',
+      backstory: 'epic',
+      image_url: 'hulk.com'
+  )
+}
 
   describe 'GET#index' do
     it 'returns a list of all the superheroes' do
