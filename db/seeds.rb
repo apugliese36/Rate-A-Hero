@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Superhero.destroy_all
+
+
+Superhero.create(name: "my mom", superpower: "making omelettes", backstory: "brilliant from birth", image_url: "mom.com")
