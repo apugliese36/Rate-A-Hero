@@ -7,16 +7,16 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       superpower: 'BENDS METAL',
       backstory: 'so sad',
       image_url: 'magneto.com'
-  )
-}
+    )
+  }
   let!(:hulk) {
     Superhero.create(
       name: 'Hulk',
       superpower: 'very strong',
       backstory: 'epic',
       image_url: 'hulk.com'
-  )
-}
+    )
+  }
 
   describe 'GET#index' do
     it 'returns a list of all the superheroes' do
@@ -37,7 +37,6 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       expect(returned_json[1]['superpower']).to eq 'very strong'
       expect(returned_json[1]['backstory']).to eq 'epic'
       expect(returned_json[1]['image_url']).to eq 'hulk.com'
-
     end
   end
 end
