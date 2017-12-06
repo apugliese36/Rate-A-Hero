@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import SuperheroTileComponent from "../components/SuperheroTileComponent"
+import { Route, IndexRoute, Router, browserHistory } from 'react-router';
 
-class SuperheroesIndexContainer extends Component {
+class SuperheroShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      superheroes: []
+      superhero: []
     }
   }
 
   componentDidMount () {
-  fetch('http://localhost:3000/api/v1/superheroes')
+  fetch(`http://localhost:3000/api/v1/superheroes/${this.props.params.id}`)
   .then(response => {
     if (response.ok) {
       return response;
@@ -23,32 +24,24 @@ class SuperheroesIndexContainer extends Component {
   .then(response => response.json())
   .then(body => {
     this.setState({
-      superheroes: body
+      superhero: body
     })
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
 
-
   render () {
-    let superheroes = this.state.superheroes.map(superhero => {
-      return (
-        <SuperheroTileComponent
-          key={superhero.id}
-          id={superhero.id}
-          name={superhero.name}
-          imageUrl={superhero.image_url}
-        />
-      )
-    })
-    return (
+    return(
       <div>
-        <h1>Here are some Superheroes</h1>
-          {superheroes}
+        <h1>{this.state.superhero.name}</h1>
+        <img src={`${this.state.superhero.image_url}`} width='200' height='200'/>
+        <div>{`Backstory: ${this.state.superhero.backstory}`}</div>
+        <div>{`Superpower: ${this.state.superhero.superpower}`}</div>
+
       </div>
     )
   }
 
 }
 
-export default SuperheroesIndexContainer;
+export default SuperheroShowContainer;
