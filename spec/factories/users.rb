@@ -6,6 +6,5 @@ FactoryBot.define do
     username 'apple123'
     password 'password'
     password_confirmation 'password'
-
   end
 end
