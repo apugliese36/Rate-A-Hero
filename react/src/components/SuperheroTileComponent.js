@@ -7,7 +7,8 @@ const SuperheroTileComponent = props =>{
     <div>
       <Link to={`/superheroes/${props.id}`}><h1>{props.name}</h1></Link>
 
-      <img src={props.imageUrl}/>
+      <img src={`${props.imageUrl}`} width='100' height='100'/>
+
     </div>
   );
 
