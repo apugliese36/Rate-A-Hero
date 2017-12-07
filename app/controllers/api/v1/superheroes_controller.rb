@@ -17,7 +17,8 @@ class Api::V1::SuperheroesController < ApiController
     if superhero.save
       render json: superhero
     else
-      render json: { error: superhero.errors.full_messages },
+      render json:
+      { error: superhero.errors.full_messages },
       status: :unprocessable_entity
     end
   end
@@ -25,6 +26,11 @@ class Api::V1::SuperheroesController < ApiController
   private
 
   def superhero_params
-    params.require(:superhero).permit(:name, :backstory, :superpower, :image_url)
+    params.require(:superhero).permit(
+      :name,
+      :backstory,
+      :superpower,
+      :image_url
+    )
   end
 end
