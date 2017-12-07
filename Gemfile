@@ -2,6 +2,7 @@ source 'https://rubygems.org/'
 
 gem 'devise'
 gem 'foundation-rails'
+gem 'pry'
 gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
