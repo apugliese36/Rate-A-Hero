@@ -41,19 +41,11 @@ class SuperheroFormComponent extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    let formPayload = {
-      name: this.state.name,
-      superpower: this.state.superpower,
-      backstory: this.state.backstory,
-      image_url: this.state.imageUrl
-    };
-
+  newSuperhero(payload) {
     fetch('/api/v1/superheroes', {
       credentials: 'same-origin',
       method: 'POST',
-      body: JSON.stringify(formPayload),
+      body: JSON.stringify(payload),
       headers: { 'Content-Type': 'application/json' }
     })
     .then(response => {
@@ -68,9 +60,21 @@ class SuperheroFormComponent extends React.Component {
     .then(response => response.json())
     .then(body => {
       this.handleClearForm();
-      browserHistory.push(`/superheroes/${body.id}`)
+      browserHistory.push(`/superheroes/${body.id}`);
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let formPayload = {
+      name: this.state.name,
+      superpower: this.state.superpower,
+      backstory: this.state.backstory,
+      image_url: this.state.imageUrl
+    };
+
+    this.newSuperhero(formPayload);
   }
 
   render() {
