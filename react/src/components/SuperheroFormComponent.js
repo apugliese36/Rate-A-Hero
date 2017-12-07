@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Route, IndexRoute, Router, browserHistory } from 'react-router';
 
 class SuperheroFormComponent extends React.Component {
   constructor(props) {
@@ -68,6 +68,7 @@ class SuperheroFormComponent extends React.Component {
     .then(response => response.json())
     .then(body => {
       this.handleClearForm();
+      browserHistory.push(`/superheroes/${body.id}`)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }

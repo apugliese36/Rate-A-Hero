@@ -15,7 +15,7 @@ class Api::V1::SuperheroesController < ApiController
   def create
     superhero = Superhero.new(superhero_params)
     if superhero.save
-      redirect_to '/superheroes'
+      render json: superhero
     else
       render json: { error: superhero.errors.full_messages }, status: :unprocessable_entity
     end
