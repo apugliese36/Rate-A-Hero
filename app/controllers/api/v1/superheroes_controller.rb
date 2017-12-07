@@ -17,7 +17,8 @@ class Api::V1::SuperheroesController < ApiController
     if superhero.save
       render json: superhero
     else
-      render json: { error: superhero.errors.full_messages }, status: :unprocessable_entity
+      render json: { error: superhero.errors.full_messages },
+      status: :unprocessable_entity
     end
   end
 
