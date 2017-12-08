@@ -1,7 +1,7 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "profile photo" do
-  scenario "user uploads a profile photo" do
+feature 'profile photo' do
+  scenario 'user uploads a profile photo' do
     visit root_path
     click_link 'Sign Up'
     fill_in 'First Name', with: 'Jeff'
@@ -10,7 +10,8 @@ feature "profile photo" do
     fill_in 'Username', with: 'apple123'
     fill_in 'user_password', with: 'password'
     fill_in 'Password Confirmation', with: 'password'
-    attach_file 'user_profile_photo', "#{Rails.root}/spec/support/images/photo.png"
+    attach_file 'user_profile_photo',
+    '#{Rails.root}/spec/support/images/photo.png'
     click_button 'Sign Up'
 
     expect(page).to have_content('Welcome to Rate-A-Hero. Enjoy your heroic experience!')
