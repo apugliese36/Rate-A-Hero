@@ -1,0 +1,6 @@
+<% @users.each do |user| %>
+<div>
+  <%=image_tag(user.profile_photo, size:"45")%>
+  <%=user.username%>
+</div>
+<% end %>
