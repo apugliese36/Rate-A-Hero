@@ -31,7 +31,6 @@ class SuperheroesIndexContainer extends Component {
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
 
-
   render () {
       let superheroes = this.state.superheroes.map(superhero => {
       return (
@@ -51,7 +50,6 @@ class SuperheroesIndexContainer extends Component {
       </div>
     );
   }
-
 }
 
 export default SuperheroesIndexContainer;
