@@ -4,6 +4,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem 'foundation-rails'
+gem 'pry'
 gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'

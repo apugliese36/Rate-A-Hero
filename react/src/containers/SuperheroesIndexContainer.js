@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SuperheroTileComponent from "../components/SuperheroTileComponent"
+import { Route, IndexRoute, Router, browserHistory, Link, Redirect } from 'react-router';
+
 
 class SuperheroesIndexContainer extends Component {
   constructor(props) {
@@ -46,6 +48,7 @@ class SuperheroesIndexContainer extends Component {
       <div>
         <h1>Here are some Superheroes</h1>
           {superheroes}
+          <Link to={`/superheroes/new`}>Add a Superhero</Link>
       </div>
     )
   }
