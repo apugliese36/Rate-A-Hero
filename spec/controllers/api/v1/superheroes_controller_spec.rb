@@ -28,16 +28,16 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq('application/json')
 
-      expect(returned_json["superheroes"].length).to eq 2
-      expect(returned_json["superheroes"][0]['name']).to eq 'Magneto'
-      expect(returned_json["superheroes"][0]['superpower']).to eq 'BENDS METAL'
-      expect(returned_json["superheroes"][0]['backstory']).to eq 'so sad'
-      expect(returned_json["superheroes"][0]['image_url']).to eq 'magneto.com'
+      expect(returned_json['superheroes'].length).to eq 2
+      expect(returned_json['superheroes'][0]['name']).to eq 'Magneto'
+      expect(returned_json['superheroes'][0]['superpower']).to eq 'BENDS METAL'
+      expect(returned_json['superheroes'][0]['backstory']).to eq 'so sad'
+      expect(returned_json['superheroes'][0]['image_url']).to eq 'magneto.com'
 
-      expect(returned_json["superheroes"][1]['name']).to eq 'Hulk'
-      expect(returned_json["superheroes"][1]['superpower']).to eq 'very strong'
-      expect(returned_json["superheroes"][1]['backstory']).to eq 'epic'
-      expect(returned_json["superheroes"][1]['image_url']).to eq 'hulk.com'
+      expect(returned_json['superheroes'][1]['name']).to eq 'Hulk'
+      expect(returned_json['superheroes'][1]['superpower']).to eq 'very strong'
+      expect(returned_json['superheroes'][1]['backstory']).to eq 'epic'
+      expect(returned_json['superheroes'][1]['image_url']).to eq 'hulk.com'
     end
   end
 end

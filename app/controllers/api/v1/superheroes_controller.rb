@@ -3,7 +3,6 @@ class Api::V1::SuperheroesController < ApiController
 
   def index
     superheroes = Superhero.all
-    reviews = Review.all
     render json: superheroes
   end
 

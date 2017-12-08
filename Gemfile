@@ -8,9 +8,9 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
-gem 'uglifier', '>= 1.3.0'
+gem 'active_model_serializers'
 gem 'faker'
-gem "active_model_serializers"
+gem 'uglifier', '>= 1.3.0'
 
 group :test do
   gem 'coveralls', require: false
@@ -30,7 +30,6 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
-  gem "active_model_serializers"
 end
 
 group :production do
