@@ -17,7 +17,7 @@ describe('SuperheroesIndexContainer', () => {
       id: 1,
       name: 'my mom',
       image_url: 'https://image.gala.de/20293706/large1x1-300-300/cdda69fdf0438ee891f6fa44c88b4062/Mr/die-nanny--10220887-.jpg'
-    }]})
+    }]});
     expect(wrapper.find(SuperheroTileComponent)).toBePresent();
   });
 
@@ -26,7 +26,7 @@ describe('SuperheroesIndexContainer', () => {
       id: 1,
       name: 'my mom',
       image_url: 'https://image.gala.de/20293706/large1x1-300-300/cdda69fdf0438ee891f6fa44c88b4062/Mr/die-nanny--10220887-.jpg'
-    }]})
+    }]});
     expect(wrapper.find(SuperheroTileComponent).props()).toEqual({
       id: 1,
       name:'my mom',
