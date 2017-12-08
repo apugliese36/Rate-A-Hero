@@ -11,8 +11,7 @@ feature 'profile photo' do
     fill_in 'user_password', with: 'password'
     fill_in 'Password Confirmation', with: 'password'
     attach_file
-      'user_profile_photo',
-      '#{Rails.root}/spec/support/images/photo.png'
+      'user_profile_photo','#{Rails.root}/spec/support/images/photo.png'
     click_button 'Sign Up'
 
     expect(page).to have_content('Welcome to Rate-A-Hero. Enjoy your
