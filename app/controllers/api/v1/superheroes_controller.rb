@@ -11,8 +11,8 @@ class Api::V1::SuperheroesController < ApiController
   end
 
   def authorize_user
-    if !user_signed_in? || !current_user.admin?
-      raise ActionController::RoutingError.new("Not Found")
-    end
+    return unless user_signed_in? || current_user.admin?
+    raise ActionController::RoutingError, 'Not Found'
+    fail 'message'
   end
 end

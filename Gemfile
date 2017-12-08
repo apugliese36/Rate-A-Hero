@@ -1,5 +1,6 @@
 source 'https://rubygems.org/'
 
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
 gem 'foundation-rails'
@@ -8,9 +9,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'uglifier', '>= 1.3.0'
-
 
 group :test do
   gem 'coveralls', require: false

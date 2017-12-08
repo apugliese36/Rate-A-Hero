@@ -1,6 +1,5 @@
 module ApplicationHelper
-
-  def user_avatar user
+  def user_avatar(user)
     if user.profile_photo.present?
       image_tag user.image_url :thumbnail
     else
@@ -8,5 +7,4 @@ module ApplicationHelper
       image_tag 'default.jpg'
     end
   end
-
 end

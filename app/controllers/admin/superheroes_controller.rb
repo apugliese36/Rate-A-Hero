@@ -1,6 +1,3 @@
 class Admin::SuperheroesController < ApplicationController
-
-  def index
-  end
-
+  def index; end
 end
