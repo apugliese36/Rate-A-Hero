@@ -1,10 +1,9 @@
-require 'pry'
-
 class Api::V1::SuperheroesController < ApiController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
     superheroes = Superhero.all
+    reviews = Review.all
     render json: superheroes
   end
 

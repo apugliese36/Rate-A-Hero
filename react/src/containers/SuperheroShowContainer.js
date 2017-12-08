@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SuperheroTileComponent from "../components/SuperheroTileComponent"
+import SuperheroTileComponent from "../components/SuperheroTileComponent";
+import ReviewsContainer from "./ReviewsContainer";
 import { Route, IndexRoute, Router, browserHistory } from 'react-router';
 
 class SuperheroShowContainer extends Component {
@@ -7,7 +8,7 @@ class SuperheroShowContainer extends Component {
     super(props);
     this.state = {
       superhero: []
-    }
+    };
   }
 
   componentDidMount () {
@@ -24,8 +25,8 @@ class SuperheroShowContainer extends Component {
   .then(response => response.json())
   .then(body => {
     this.setState({
-      superhero: body
-    })
+      superhero: body.superhero
+    });
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
@@ -37,9 +38,12 @@ class SuperheroShowContainer extends Component {
         <img src={`${this.state.superhero.image_url}`} width='200' height='200'/>
         <div>{`Backstory: ${this.state.superhero.backstory}`}</div>
         <div>{`Superpower: ${this.state.superhero.superpower}`}</div>
-
+        <ReviewsContainer
+          key={this.props.id}
+          id={this.props.params.id}
+        />
       </div>
-    )
+    );
   }
 
 }
