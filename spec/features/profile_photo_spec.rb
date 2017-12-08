@@ -18,7 +18,6 @@ feature 'profile photo' do
       heroic experience!')
 
     visit users_path
-    
     expect(page).to have_css("img[src*='photo.png']")
   end
 end

@@ -26,6 +26,7 @@ feature 'user edits account', %(
       'Your account has been updated successfully.'
     )
   end
+  
   scenario 'update account information incorrectly' do
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -43,5 +44,4 @@ feature 'user edits account', %(
       'Please review the problems below'
     )
   end
-
 end
