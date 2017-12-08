@@ -12,7 +12,7 @@ class SuperheroesIndexContainer extends Component {
   }
 
   componentDidMount () {
-  fetch('http://peaceful-spire-18995.herokuapp.com/api/v1/superheroes')
+  fetch('/api/v1/superheroes')
   .then(response => {
     if (response.ok) {
       return response;
