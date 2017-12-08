@@ -1,4 +1,3 @@
-require 'pry'
 class Api::V1::SuperheroesController < ApiController
   before_action :authorize_user, except: [:index, :show]
   skip_before_action :verify_authenticity_token, only: [:create]
@@ -10,12 +9,6 @@ class Api::V1::SuperheroesController < ApiController
 
   def show
     render json: Superhero.find(params[:id])
-  end
-
-  def authorize_user
-    if !user_signed_in? || !current_user.admin?
-      raise ActionController::RoutingError.new('Not Found')
-    end
   end
 
   def create

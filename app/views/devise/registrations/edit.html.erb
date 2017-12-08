@@ -5,12 +5,10 @@
 
   <div class="form-inputs">
     <% if @user.admin? %>
-    <p>you're an administrator!</p>
+      <p>you're an administrator!</p>
     <% end %>
 
     <%= f.input :email, required: true, autofocus: true %>
-
-
     <%= f.input :password, autocomplete: "off", hint: "", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "", required: true %>

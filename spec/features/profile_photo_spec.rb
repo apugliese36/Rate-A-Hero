@@ -16,7 +16,9 @@ feature 'profile photo' do
 
     expect(page).to have_content('Welcome to Rate-A-Hero. Enjoy your
       heroic experience!')
+
     visit users_path
+    
     expect(page).to have_css("img[src*='photo.png']")
   end
 end
