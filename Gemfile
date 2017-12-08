@@ -1,8 +1,8 @@
 source 'https://rubygems.org/'
 
 gem 'carrierwave', '~> 1.0'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'foundation-rails'
 gem 'pry'
 gem 'rails', '~> 5.1.2'
