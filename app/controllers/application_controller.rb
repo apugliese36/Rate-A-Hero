@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
       [
         :first_name,
         :last_name,
-        :username
+        :username,
+        :profile_photo
       ])
   end
 end
