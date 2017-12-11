@@ -10,7 +10,7 @@ class ReviewsContainer extends Component {
   }
 
   componentDidMount () {
-  fetch(`http://localhost:3000/api/v1/superheroes/${this.props.id}`)
+  fetch(`/api/v1/superheroes/${this.props.id}`)
   .then(response => {
     if (response.ok) {
       return response;

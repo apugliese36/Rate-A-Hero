@@ -12,7 +12,7 @@ class SuperheroShowContainer extends Component {
   }
 
   componentDidMount () {
-  fetch(`http://localhost:3000/api/v1/superheroes/${this.props.params.id}`)
+  fetch(`/api/v1/superheroes/${this.props.params.id}`)
   .then(response => {
     if (response.ok) {
       return response;
