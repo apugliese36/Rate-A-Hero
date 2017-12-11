@@ -21,6 +21,7 @@ class Api::V1::SuperheroesController < ApiController
     end
   end
 
+
   private
 
   def superhero_params

@@ -3,6 +3,9 @@ source 'https://rubygems.org/'
 gem 'active_model_serializers'
 gem 'devise'
 gem 'faker'
+gem 'carrierwave', '~> 1.0'
+gem 'devise'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'foundation-rails'
 gem 'pry'
 gem 'rails', '~> 5.1.2'
@@ -37,3 +40,5 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby '2.3.3'
