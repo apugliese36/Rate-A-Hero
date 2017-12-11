@@ -11,19 +11,12 @@ describe('ReviewsContainer', () => {
     expect(wrapper.state()).toEqual({ reviews: [] });
   });
 
-  it('should render an Superhero Tile Component', () => {
-    wrapper.setState({ reviews: [{
-      id: 1,
-      rating: 3,
-      comment: 'my mom'
-    }]});
-  });
-
   it('should render the ReviewsContainer Component with specific props', () => {
     wrapper.setState({ reviews: [{
       id: 1,
       rating: 3,
       comment: 'my mom'
-    }]});
+      }]
+    });
   });
 });
