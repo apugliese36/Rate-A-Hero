@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SuperheroTileComponent from "../components/SuperheroTileComponent"
+import SuperheroTileComponent from "../components/SuperheroTileComponent";
 import { Route, IndexRoute, Router, browserHistory, Link, Redirect } from 'react-router';
 
 
@@ -8,7 +8,7 @@ class SuperheroesIndexContainer extends Component {
     super(props);
     this.state = {
       superheroes: []
-    }
+    };
   }
 
   componentDidMount () {
@@ -25,34 +25,31 @@ class SuperheroesIndexContainer extends Component {
   .then(response => response.json())
   .then(body => {
     this.setState({
-      superheroes: body
-    })
+      superheroes: body.superheroes
+    });
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
 
-
   render () {
-    let superheroes = this.state.superheroes.map(superhero => {
+      let superheroes = this.state.superheroes.map(superhero => {
       return (
         <SuperheroTileComponent
           key={superhero.id}
           id={superhero.id}
           name={superhero.name}
           imageUrl={superhero.image_url}
-          role={superhero.role}
         />
-      )
-    })
+      );
+    });
     return (
       <div>
         <h1>Here are some Superheroes</h1>
           {superheroes}
           <Link to={`/superheroes/new`}>Add a Superhero</Link>
       </div>
-    )
+    );
   }
-
 }
 
 export default SuperheroesIndexContainer;
