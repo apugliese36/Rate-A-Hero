@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { Route, IndexRoute, Router, browserHistory } from 'react-router';
+import ReviewForm from '../components/ReviewForm'
 
 class ReviewsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: []
+      reviews: [],
+      user_id: this.props.user_id
     };
+    this.newRating = this.newRating.bind(this)
+  }
+
+  newRating(formPayload) {
+    this.setState({
+      reviews: this.state.reviews.concat(formPayload)
+    })
   }
 
   componentDidMount () {
@@ -31,8 +40,10 @@ class ReviewsContainer extends Component {
 
   render () {
     let reviews = this.state.reviews.map(review => {
+      // let profilePic = User.find(review.user_id).profile_photo
       return (
         <div>
+          <img />
           <p>Rating: {review.rating}</p>
           <p>Review: {review.comment}</p>
         </div>
@@ -42,6 +53,11 @@ class ReviewsContainer extends Component {
     return(
       <div>
         {reviews}
+        <ReviewForm
+          newRating = {this.newRating}
+          id = {this.props.id}
+          user_id = {this.props.user_id}
+        />
       </div>
     );
   }

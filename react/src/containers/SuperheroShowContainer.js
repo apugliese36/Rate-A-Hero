@@ -7,7 +7,8 @@ class SuperheroShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      superhero: []
+      superhero: [],
+      user_id: null
     };
   }
 
@@ -24,8 +25,10 @@ class SuperheroShowContainer extends Component {
   })
   .then(response => response.json())
   .then(body => {
+    debugger;
     this.setState({
-      superhero: body.superhero
+      superhero: body.superhero,
+      user_id: body.current_user
     });
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -41,6 +44,7 @@ class SuperheroShowContainer extends Component {
         <ReviewsContainer
           key={this.props.id}
           id={this.props.params.id}
+          user_id={this.state.user_id}
         />
       </div>
     );

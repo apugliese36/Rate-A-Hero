@@ -7,7 +7,8 @@ class SuperheroesIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      superheroes: []
+      superheroes: [],
+      user_id: null
     };
   }
 
@@ -25,7 +26,8 @@ class SuperheroesIndexContainer extends Component {
   .then(response => response.json())
   .then(body => {
     this.setState({
-      superheroes: body.superheroes
+      superheroes: body.superheroes,
+      user_id: body.current_user
     });
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));

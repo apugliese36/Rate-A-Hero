@@ -42,7 +42,7 @@ class SuperheroFormComponent extends React.Component {
   }
 
   newSuperhero(payload) {
-    fetch('/api/v1/superheroes', {
+    fetch('/api/v1/reviews', {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(payload),

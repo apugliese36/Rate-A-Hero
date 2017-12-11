@@ -1,9 +1,10 @@
 class Api::V1::SuperheroesController < ApiController
   skip_before_action :verify_authenticity_token, only: [:create]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     superheroes = Superhero.all
-    render json: superheroes
+    render json: { superheroes: superheroes, current_user: current_user }
   end
 
   def show
