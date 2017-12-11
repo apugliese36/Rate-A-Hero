@@ -39,7 +39,6 @@ class SuperheroesIndexContainer extends Component {
           id={superhero.id}
           name={superhero.name}
           imageUrl={superhero.image_url}
-          role={superhero.role}
         />
       );
     });

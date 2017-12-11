@@ -1,5 +1,5 @@
 import SuperheroesIndexContainer from '../../src/containers/SuperheroesIndexContainer';
-import SuperheroTileComponent from '../../src/components/SuperheroTileComponent'
+import SuperheroTileComponent from '../../src/components/SuperheroTileComponent';
 
 describe('SuperheroesIndexContainer', () => {
   let wrapper;
