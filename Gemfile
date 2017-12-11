@@ -1,15 +1,15 @@
 source 'https://rubygems.org/'
 
+gem 'active_model_serializers'
 gem 'devise'
+gem 'faker'
 gem 'foundation-rails'
 gem 'pry'
 gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
-gem 'active_model_serializers'
 gem 'simple_form'
-gem 'faker'
 gem 'uglifier', '>= 1.3.0'
 
 group :test do
