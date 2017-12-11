@@ -1,10 +1,10 @@
 source 'https://rubygems.org/'
 
 gem 'active_model_serializers'
-gem 'devise'
 gem 'carrierwave', '~> 1.0'
-gem 'faker'
+gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'faker'
 gem 'foundation-rails'
 gem 'pry'
 gem 'rails', '~> 5.1.2'
