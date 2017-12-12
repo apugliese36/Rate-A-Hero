@@ -19,7 +19,7 @@ describe('ReviewsContainer', () => {
       }]
     });
   });
-  it('should render a ReviewForm Component with the specific props', () => {
+  it('should render a ReviewForm Component', () => {
     expect(wrapper.find('ReviewForm')).toBePresent();
   })
 });

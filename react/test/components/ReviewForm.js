@@ -27,14 +27,19 @@ describe('ReviewForm', () =>{
     expect(wrapper.find('select').at(0)).toBePresent();
     expect(wrapper.find('option').at(0)).toBePresent();
     expect(wrapper.find('option').at(0).text()).toBe('-')
+
     expect(wrapper.find('option').at(1)).toBePresent();
     expect(wrapper.find('option').at(1).text()).toBe('★')
+
     expect(wrapper.find('option').at(2)).toBePresent();
     expect(wrapper.find('option').at(2).text()).toBe('★★')
+
     expect(wrapper.find('option').at(3)).toBePresent();
     expect(wrapper.find('option').at(3).text()).toBe('★★★')
+
     expect(wrapper.find('option').at(4)).toBePresent();
     expect(wrapper.find('option').at(4).text()).toBe('★★★★')
+
     expect(wrapper.find('option').at(5)).toBePresent();
     expect(wrapper.find('option').at(5).text()).toBe('★★★★★')
   })
@@ -47,5 +52,4 @@ describe('ReviewForm', () =>{
       value: 'Submit'
     });
   });
-
 });

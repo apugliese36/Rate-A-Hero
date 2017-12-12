@@ -55,7 +55,6 @@ class ReviewForm extends React.Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-
   render () {
     return(
       <form className="new-article-form callout" onSubmit={this.handleSubmit}>
