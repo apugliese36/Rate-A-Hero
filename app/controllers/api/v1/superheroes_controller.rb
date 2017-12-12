@@ -30,7 +30,8 @@ class Api::V1::SuperheroesController < ApiController
       :name,
       :backstory,
       :superpower,
-      :image_url
+      :image_url,
+      :user_id
     )
   end
 end

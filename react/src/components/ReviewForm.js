@@ -23,11 +23,11 @@ class ReviewForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    debugger;
     let formPayload = {
       rating: this.state.rating,
       comment: this.state.comment,
-      superhero_id: this.props.superheroId
+      superhero_id: this.props.superheroId,
+      user_id: this.props.currentUser.id
     };
     this.newReview(formPayload)
   }

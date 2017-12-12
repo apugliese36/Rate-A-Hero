@@ -41,8 +41,9 @@ class ReviewsContainer extends Component {
     let reviews = this.state.reviews.map(review => {
       return (
         <div>
-          <p>Rating: {review.rating}</p>
-          <p>Review: {review.comment}</p>
+          <p>Rating: {review.rating}<br/>
+          Comment: {review.comment}<br/>
+          Review created by: {review.creator_username}</p>
         </div>
       );
     });
@@ -53,6 +54,7 @@ class ReviewsContainer extends Component {
         <ReviewForm
           newReview = {this.newReview}
           superheroId = {this.props.id}
+          currentUser = {this.props.currentUser}
         />
       </div>
     );
