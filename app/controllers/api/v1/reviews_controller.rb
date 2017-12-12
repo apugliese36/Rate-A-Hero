@@ -1,10 +1,10 @@
 class Api::V1::ReviewsController < ApiController
   skip_before_action :verify_authenticity_token, only: [:create]
-  before_action :authenticate_user!, except: [:index, :show]
+
 
   def index
     reviews = Review.all
-    render json: { reviews: reviews, current_user: current_user }
+    render json: reviews
   end
 
   def show
@@ -28,8 +28,7 @@ class Api::V1::ReviewsController < ApiController
     params.require(:review).permit(
       :rating,
       :comment,
-      :superhero_id,
-      :user_id
+      :superhero_id
     )
   end
 end

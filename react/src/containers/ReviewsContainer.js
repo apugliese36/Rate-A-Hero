@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, IndexRoute, Router, browserHistory } from 'react-router';
+import ReviewForm from '../components/ReviewForm'
 
 class ReviewsContainer extends Component {
   constructor(props) {
@@ -7,6 +8,13 @@ class ReviewsContainer extends Component {
     this.state = {
       reviews: []
     };
+    this.newReview = this.newReview.bind(this);
+  }
+
+  newReview(formPayload) {
+    this.setState({
+      reviews: this.state.reviews.concat(formPayload)
+    })
   }
 
   componentDidMount () {
@@ -42,6 +50,10 @@ class ReviewsContainer extends Component {
     return(
       <div>
         {reviews}
+        <ReviewForm
+          newReview = {this.newReview}
+          superheroId = {this.props.id}
+        />
       </div>
     );
   }
