@@ -5,12 +5,12 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
 
   let!(:kjoya) {
     User.create(
-      first_name: "kylee",
-      last_name: "a",
-      username: "kjoya",
-      email: "kjoya@gmail.com",
-      password: "secrectPassword",
-      encrypted_password: "secretPassword"
+      first_name: 'kylee',
+      last_name: 'a',
+      username: 'kjoya',
+      email: 'kjoya@gmail.com',
+      password: 'secrectPassword',
+      encrypted_password: 'secretPassword'
     )
   }
 
@@ -41,7 +41,7 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq('application/json')
-      
+
       expect(returned_json['superheroes'].length).to eq 2
       expect(returned_json['superheroes'][0]['name']).to eq 'Magneto'
       expect(returned_json['superheroes'][0]['superpower']).to eq 'BENDS METAL'
