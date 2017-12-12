@@ -4,7 +4,7 @@ class Api::V1::ReviewsController < ApiController
 
   def index
     reviews = Review.all
-    render json: { reviews: reviews, current_user: user_id }
+    render json: { reviews: reviews, current_user: current_user }
   end
 
   def show

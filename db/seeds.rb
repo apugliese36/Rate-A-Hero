@@ -8,6 +8,7 @@
 require 'faker'
 Superhero.destroy_all
 Review.destroy_all
+User.destroy_all
 
 blorp = User.create(first_name: "Blorp", last_name: "McGorp", username: "Blorpy", email: "blorp@blorpy.com", password: "secrectPassword", encrypted_password: "secretPassword" )
 
