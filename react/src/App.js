@@ -12,8 +12,6 @@ const App = props => {
       <Router history={browserHistory}>
         <Route path='/'>
           <IndexRoute component={SuperheroesIndexContainer}/>
-          <Route path='/admin/superheroes' component={SuperheroesIndexContainer}/>
-          <Route path='/admin/superheroes/:id' component={SuperheroShowContainer}/>
           <Route path='/superheroes' component={SuperheroesIndexContainer}/>
           <Route path='/superheroes/new' component={SuperheroFormComponent}/>
           <Route path='/superheroes/:id' component={SuperheroShowContainer}/>
