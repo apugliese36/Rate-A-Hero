@@ -35,7 +35,7 @@ class SuperheroShowContainer extends Component {
     return(
       <div>
         <h1>{this.state.superhero.name}</h1>
-        <img src={`${this.state.superhero.image_url}`} width='200' height='200'/>
+        <img id="heroshow" src={`${this.state.superhero.image_url}`}/>
         <div>{`Backstory: ${this.state.superhero.backstory}`}</div>
         <div>{`Superpower: ${this.state.superhero.superpower}`}</div>
         <ReviewsContainer

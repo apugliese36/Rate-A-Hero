@@ -12,9 +12,11 @@ const SuperheroTileComponent = props =>{
     }
 
   return(
-    <div>
-      <Link to={path}><h1>{props.name}</h1>
-      <img src={`${props.imageUrl}`} width='100' height='100'/></Link>
+    <div className="rows">
+      <div id="post-module" className="small-12 medium-4 columns">
+        <Link to={path}><h1 id="superherotile">{props.name}</h1></Link><br/>
+        <img id="herophoto" src={`${props.imageUrl}`}/>
+      </div>
     </div>
   );
 };
