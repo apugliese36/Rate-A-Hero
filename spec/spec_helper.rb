@@ -13,6 +13,23 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'coveralls'
+require 'simplecov'
+Coveralls.wear!('rails')
+
+require File.expand_path('../../config/environment', __FILE__)
+require 'rspec/rails'
+require 'capybara/rspec'
+
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start do
+  add_filter 'app/channels'
+  add_filter 'app/mailers'
+  add_filter 'app/jobs'
+  add_filter 'app/helpers'
+end
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -93,20 +110,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-end
-
-require 'coveralls'
-require 'simplecov'
-Coveralls.wear!('rails')
-
-require File.expand_path('../../config/environment', __FILE__)
-require 'rspec/rails'
-require 'capybara/rspec'
-
-SimpleCov.formatter = Coveralls::SimpleCov:Formatter
-SimpleCov.start do
-  add_filter 'app/channels'
-  add_filter 'app/mailers'
-  add_filter 'app/jobs'
-  add_filter 'app/helpers'
 end
