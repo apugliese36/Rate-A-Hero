@@ -38,12 +38,14 @@ class SuperheroShowContainer extends Component {
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
 
-  deleteSuperhero() {
+  deleteSuperhero(event) {
+    event.preventDefault();
     fetch(`/api/v1/superheroes/${this.props.params.id}`, {
       credentials: 'same-origin',
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
-    }).then(
+    })
+    .then(
       browserHistory.push('/superheroes')
     );
   }
