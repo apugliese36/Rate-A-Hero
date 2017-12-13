@@ -17,7 +17,7 @@ Superhero.create(name: "Dan", superpower: "CHAINSAW", backstory: "It's a pretty 
 Superhero.create(name: "Jeff", superpower: "wall art and magic", backstory: "I'd rather have a free bottle in front of me than a prefrontal lobotomy.", image_url: "https://www.thesun.co.uk/wp-content/uploads/2016/11/nintchdbpict0002381335901.jpg?w=631")
 Superhero.create(name: "Stephen", superpower: "kaboom-boom", backstory: "what you know about it", image_url: "http://lessthannegative.com/images/Movies/biodome1.jpg")
 Superhero.create(name: "Kylee", superpower: "Kylee stuff", backstory: "Pilots the Codeship", image_url: "https://img.buzzfeed.com/buzzfeed-static/static/2015-02/4/16/campaign_images/webdr04/23-times-dw-was-the-realest-bitch-who-ever-lived-2-6727-1423086148-20_dblbig.jpg")
-
+Superhero.create(name: "Sebastian", superpower: "Peacin' Out", backstory: "He's all gone", image_url: "http://s1.r29static.com//bin/entry/746/x,80/1702405/image.jpg")
 
 
 Review.create(superhero_id: 1, rating: 3, comment: Faker::HarryPotter.quote)
@@ -34,3 +34,5 @@ Review.create(superhero_id: 6, rating: 3, comment: Faker::HarryPotter.quote)
 Review.create(superhero_id: 6, rating: 3, comment: Faker::HarryPotter.quote)
 Review.create(superhero_id: 5, rating: 3, comment: Faker::HarryPotter.quote)
 Review.create(superhero_id: 5, rating: 3, comment: Faker::HarryPotter.quote)
+Review.create(superhero_id: 7, rating: 5, comment: Faker::HarryPotter.quote)
+Review.create(superhero_id: 7, rating: 5, comment: Faker::HarryPotter.quote)
