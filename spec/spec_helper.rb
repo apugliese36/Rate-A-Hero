@@ -28,6 +28,7 @@ SimpleCov.start do
   add_filter 'app/mailers'
   add_filter 'app/jobs'
   add_filter 'app/helpers'
+  add_filter 'app/controllers/users'
 end
 
 RSpec.configure do |config|
