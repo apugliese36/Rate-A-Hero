@@ -22,6 +22,14 @@ class Api::V1::SuperheroesController < ApiController
     end
   end
 
+  def destroy
+    @superhero = Superhero.find(params[:id])
+    @reviews = @superhero.reviews
+    @superhero.delete
+    @reviews.delete
+
+    redirect_to :root
+  end
 
   private
 

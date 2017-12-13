@@ -11,6 +11,7 @@ class SuperheroShowContainer extends Component {
       currentUser: {},
       creator: ''
     };
+    this.deleteSuperhero = this.deleteSuperhero.bind(this);
   }
 
   componentDidMount () {
@@ -37,6 +38,17 @@ class SuperheroShowContainer extends Component {
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
 
+  deleteSuperhero() {
+    fetch(`/api/v1/superheroes/${this.props.params.id}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    }).then(
+      browserHistory.push('/superheroes')
+    );
+  }
+
+
   render () {
     return(
       <div>
@@ -44,7 +56,11 @@ class SuperheroShowContainer extends Component {
         <img src={`${this.state.superhero.image_url}`} width='200' height='200'/>
         <div>{`Backstory: ${this.state.superhero.backstory}`}</div>
         <div>{`Superpower: ${this.state.superhero.superpower}`}</div>
+<<<<<<< HEAD
         <div>{`Posted by: ${this.state.creator}`}</div>
+=======
+        <button onClick={this.deleteSuperhero}>Delete Superhero</button>
+>>>>>>> 1d9b9f84a42fb58131028f8fe285bb792eae2d85
         <ReviewsContainer
           key={this.props.id}
           id={this.props.params.id}

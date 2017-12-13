@@ -8,6 +8,7 @@ class ReviewsContainer extends Component {
     this.state = {
       reviews: []
     };
+<<<<<<< HEAD
     this.newReview = this.newReview.bind(this);
   }
 
@@ -15,6 +16,9 @@ class ReviewsContainer extends Component {
     this.setState({
       reviews: this.state.reviews.concat(formPayload)
     })
+=======
+    this.deleteReview = this.deleteReview.bind(this);
+>>>>>>> 1d9b9f84a42fb58131028f8fe285bb792eae2d85
   }
 
   componentDidMount () {
@@ -37,13 +41,29 @@ class ReviewsContainer extends Component {
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
 
+  deleteReview() {
+    fetch(`/api/v1/superheroes/${this.props.params.id}/${review.id}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    }).then(
+      browserHistory.push('/superheroes')
+    );
+  }
+
   render () {
     let reviews = this.state.reviews.map(review => {
       return (
         <div>
+<<<<<<< HEAD
           <p>Rating: {review.rating}<br/>
           Comment: {review.comment}<br/>
           Review created by: {review.creator_username}</p>
+=======
+          <button onClick={this.deleteReview}>Delete Review</button>
+          <p>Rating: {review.rating}</p>
+          <p>Review: {review.comment}</p>
+>>>>>>> 1d9b9f84a42fb58131028f8fe285bb792eae2d85
         </div>
       );
     });

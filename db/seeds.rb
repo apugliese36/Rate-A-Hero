@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Run line 10 to reset database
+# rake db:drop && rake db:create && rake db:migrate && rake db:seed
+
 require 'faker'
 # Superhero.destroy_all
 # Review.destroy_all
