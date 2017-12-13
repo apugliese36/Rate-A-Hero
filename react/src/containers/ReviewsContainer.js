@@ -51,7 +51,7 @@ class ReviewsContainer extends Component {
   render () {
     let reviews = this.state.reviews.map(review => {
       return (
-        <div>
+        <div id="info">
           <p>Rating: {review.rating}<br/>
           Comment: {review.comment}<br/>
           Review created by: {review.creator_username}</p>

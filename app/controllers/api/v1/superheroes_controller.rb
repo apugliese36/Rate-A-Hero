@@ -1,6 +1,6 @@
 class Api::V1::SuperheroesController < ApiController
   skip_before_action :verify_authenticity_token, only: [:create]
-  before_action :authenticate_user!, except: [:index, :show, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     superheroes = Superhero.all
