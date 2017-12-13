@@ -2,12 +2,25 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe Api::V1::SuperheroesController, type: :controller do
+
+  let!(:kjoya) {
+    User.create(
+      first_name: 'kylee',
+      last_name: 'a',
+      username: 'kjoya',
+      email: 'kjoya@gmail.com',
+      password: 'secrectPassword',
+      encrypted_password: 'secretPassword'
+    )
+  }
+
   let!(:magneto) {
     Superhero.create(
       name: 'Magneto',
       superpower: 'BENDS METAL',
       backstory: 'so sad',
-      image_url: 'magneto.com'
+      image_url: 'magneto.com',
+      user: kjoya
     )
   }
   let!(:hulk) {
@@ -15,7 +28,8 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       name: 'Hulk',
       superpower: 'very strong',
       backstory: 'epic',
-      image_url: 'hulk.com'
+      image_url: 'hulk.com',
+      user: kjoya
     )
   }
 

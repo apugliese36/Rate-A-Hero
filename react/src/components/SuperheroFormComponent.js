@@ -8,7 +8,8 @@ class SuperheroFormComponent extends React.Component {
       name: '',
       backstory: '',
       superpower: '',
-      imageUrl: ''
+      imageUrl: '',
+      userId: ''
     };
 
     this.onNameChange = this.onNameChange.bind(this);
@@ -18,6 +19,28 @@ class SuperheroFormComponent extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
   }
+
+  componentDidMount () {
+  fetch(`/api/v1/superheroes/`, {
+      credentials: 'same-origin'
+  })
+  .then(response => {
+    if (response.ok) {
+      return response;
+    } else {
+      let errorMessage = `${response.status} (${response.statusText})`,
+      error = new Error(errorMessage);
+      throw(error);
+    }
+  })
+  .then(response => response.json())
+  .then(body => {
+    this.setState({
+      userId: body.superheroes[0].current_user.id
+    });
+  })
+  .catch(error => console.error(`Error in fetch: ${error.message}`));
+}
 
   onNameChange(event) {
     this.setState({ name: event.target.value });
@@ -60,7 +83,7 @@ class SuperheroFormComponent extends React.Component {
     .then(response => response.json())
     .then(body => {
       this.handleClearForm();
-      browserHistory.push(`/superheroes/${body.id}`);
+      browserHistory.push(`/superheroes/${body.superhero.id}`);
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -71,7 +94,8 @@ class SuperheroFormComponent extends React.Component {
       name: this.state.name,
       superpower: this.state.superpower,
       backstory: this.state.backstory,
-      image_url: this.state.imageUrl
+      image_url: this.state.imageUrl,
+      user_id: this.state.userId
     };
 
     this.newSuperhero(formPayload);

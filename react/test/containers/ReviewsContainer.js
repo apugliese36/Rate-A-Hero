@@ -15,8 +15,12 @@ describe('ReviewsContainer', () => {
     wrapper.setState({ reviews: [{
       id: 1,
       rating: 3,
-      comment: 'my mom'
+      comment: 'my mom',
+      user_id: 1
       }]
     });
   });
+  it('should render a ReviewForm Component', () => {
+    expect(wrapper.find('ReviewForm')).toBePresent();
+  })
 });
