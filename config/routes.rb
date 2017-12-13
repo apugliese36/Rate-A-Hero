@@ -13,13 +13,13 @@ Rails.application.routes.draw do
 
   resources :superheroes, only: [:index, :show, :destroy]
   resources :users, only: [:index, :show]
-  resources :reviews, only: [:index, :show, :create, :destroy]
 
   namespace :api do
     namespace :v1 do
       resources :superheroes, only: [:index, :show, :create, :destroy] do
         resources :reviews, only: [:index, :show, :create, :destroy]
       end
+      resources :reviews
     end
   end
 end

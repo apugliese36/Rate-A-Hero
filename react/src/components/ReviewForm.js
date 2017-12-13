@@ -33,7 +33,7 @@ class ReviewForm extends React.Component {
   }
 
   newReview(formPayload) {
-    fetch('/api/v1/reviews', {
+    fetch(`/api/v1/superheroes/${this.props.superheroId}/reviews`, {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(formPayload),

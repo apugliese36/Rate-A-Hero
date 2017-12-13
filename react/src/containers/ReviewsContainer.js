@@ -39,12 +39,14 @@ class ReviewsContainer extends Component {
 }
 
   deleteReview() {
-    fetch(`/api/v1/superheroes/${this.props.params.id}/${review.id}`, {
+    event.preventDefault();
+    fetch(`/api/v1/superheroes/reviews/179`, {
       credentials: 'same-origin',
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     }).then(
-      browserHistory.push('/superheroes')
+      alert("Comment Deleted"),
+      browserHistory.push(`/superheroes/${this.props.id}`)
     );
   }
 
@@ -52,10 +54,11 @@ class ReviewsContainer extends Component {
     let reviews = this.state.reviews.map(review => {
       return (
         <div id="info">
-          <p>Rating: {review.rating}<br/>
+          <p>
+          Rating: {review.rating}<br/>
           Comment: {review.comment}<br/>
           Review created by: {review.creator_username}</p>
-          <button onClick={this.deleteReview}>Delete Review</button>
+          <button id="add" onClick={this.deleteReview}>Delete Review</button>
         </div>
       );
     });

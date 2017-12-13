@@ -1,6 +1,7 @@
 class Api::V1::ReviewsController < ApiController
   skip_before_action :verify_authenticity_token, only: [:create]
   before_action :authenticate_user!, except: [:index, :show]
+
   def index
     reviews = Review.all
     render json: reviews
@@ -19,6 +20,12 @@ class Api::V1::ReviewsController < ApiController
       { error: review.errors.full_messages },
         status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @superhero = Superhero.find(params[:id])
+    @review = @superhero.reviews.id
+    @review.delete
   end
 
   private
