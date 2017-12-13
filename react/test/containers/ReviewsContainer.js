@@ -15,7 +15,8 @@ describe('ReviewsContainer', () => {
     wrapper.setState({ reviews: [{
       id: 1,
       rating: 3,
-      comment: 'my mom'
+      comment: 'my mom',
+      user_id: 1
       }]
     });
   });

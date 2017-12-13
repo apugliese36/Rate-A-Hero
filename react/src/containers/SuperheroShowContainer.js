@@ -7,12 +7,16 @@ class SuperheroShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      superhero: []
+      superhero: [],
+      currentUser: {},
+      creator: ''
     };
   }
 
   componentDidMount () {
-  fetch(`/api/v1/superheroes/${this.props.params.id}`)
+  fetch(`/api/v1/superheroes/${this.props.params.id}`, {
+    credentials: 'same-origin'
+  })
   .then(response => {
     if (response.ok) {
       return response;
@@ -25,7 +29,9 @@ class SuperheroShowContainer extends Component {
   .then(response => response.json())
   .then(body => {
     this.setState({
-      superhero: body.superhero
+      superhero: body.superhero,
+      currentUser: body.superhero.current_user,
+      creator: body.superhero.user.username
     });
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -38,9 +44,11 @@ class SuperheroShowContainer extends Component {
         <img src={`${this.state.superhero.image_url}`} width='200' height='200'/>
         <div>{`Backstory: ${this.state.superhero.backstory}`}</div>
         <div>{`Superpower: ${this.state.superhero.superpower}`}</div>
+        <div>{`Posted by: ${this.state.creator}`}</div>
         <ReviewsContainer
           key={this.props.id}
           id={this.props.params.id}
+          currentUser={this.state.currentUser}
         />
       </div>
     );
