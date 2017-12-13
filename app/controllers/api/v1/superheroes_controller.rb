@@ -4,9 +4,9 @@ class Api::V1::SuperheroesController < ApiController
 
   def index
     superheroes = Superhero.all
-    render json: { superheroes: Superhero.all, current_user: current_user }
+    render json: superheroes
   end
-
+  
   def show
     render json: Superhero.find(params[:id])
   end

@@ -25,7 +25,6 @@ class SuperheroShowContainer extends Component {
   })
   .then(response => response.json())
   .then(body => {
-    debugger;
     this.setState({
       superhero: body.superhero,
       user_id: body.current_user

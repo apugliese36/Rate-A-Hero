@@ -1,7 +1,7 @@
 class SuperheroSerializer < ActiveModel::Serializer
-  attributes :id, :name, :superpower, :backstory, :image_url, :reviews
+  attributes :id, :name, :superpower, :backstory, :image_url, :reviews, :current_user
 
-  # def reviews
-  #   ReviewsSerializer.new(object.reviews)
-  # end
+  def current_user
+    return scope.current_user
+  end
 end

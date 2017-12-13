@@ -42,7 +42,7 @@ class SuperheroFormComponent extends React.Component {
   }
 
   newSuperhero(payload) {
-    fetch('/api/v1/reviews', {
+    fetch('/api/v1/superheroes', {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(payload),
@@ -59,8 +59,9 @@ class SuperheroFormComponent extends React.Component {
     })
     .then(response => response.json())
     .then(body => {
+      debugger;
       this.handleClearForm();
-      browserHistory.push(`/superheroes/${body.id}`);
+      browserHistory.push(`/superheroes/${body.superhero.id}`);
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
