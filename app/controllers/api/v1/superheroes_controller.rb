@@ -1,6 +1,14 @@
 class Api::V1::SuperheroesController < ApiController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :require_permission, only: :destroy
+
+  def require_permission
+    if current_user.id != Superhero.find(params[:id]).user.id
+      redirect_to :root
+    end
+  end
+
 
   def index
     superheroes = Superhero.all

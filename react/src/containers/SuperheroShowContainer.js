@@ -45,9 +45,14 @@ class SuperheroShowContainer extends Component {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     })
-    .then(
-      browserHistory.push('/superheroes')
-    );
+    .then(response => {
+      if (response.ok) {
+        alert("Bye-bye!"),
+        browserHistory.push('/superheroes')
+      } else {
+        alert("You may not delete what you did not create")
+      }
+    })
   }
 
 
