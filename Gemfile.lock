@@ -272,6 +272,7 @@ DEPENDENCIES
   shoulda
   shoulda-matchers
   simple_form
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

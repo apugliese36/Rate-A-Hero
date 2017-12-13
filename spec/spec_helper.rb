@@ -96,4 +96,17 @@ RSpec.configure do |config|
 end
 
 require 'coveralls'
+require 'simplecov'
 Coveralls.wear!('rails')
+
+require File.expand_path('../../config/environment', __FILE__)
+require 'rspec/rails'
+require 'capybara/rspec'
+
+SimpleCov.formatter = Coveralls::SimpleCov:Formatter
+SimpleCov.start do
+  add_filter 'app/channels'
+  add_filter 'app/mailers'
+  add_filter 'app/jobs'
+  add_filter 'app/helpers'
+end
