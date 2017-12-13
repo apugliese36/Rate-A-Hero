@@ -69,7 +69,7 @@ class ReviewsContainer extends Component {
     });
 
     return(
-      <div>
+      <div id="info">
         {reviews}
         <ReviewForm
           newReview = {this.newReview}

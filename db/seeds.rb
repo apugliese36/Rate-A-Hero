@@ -42,6 +42,10 @@ mom = Superhero.create(user: blorp, name: "my mom", superpower: "making omelette
 anto = Superhero.create(user: blorp, name: "Antonio", superpower: "sword fighting and a mask", backstory: "super secret all the time", image_url:  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Antonio_Banderas_KVIFF.jpg/1200px-Antonio_Banderas_KVIFF.jpg")
 dan = Superhero.create(user: blorp, name: "Dan", superpower: "CHAINSAW", backstory: "It's a pretty good yarn", image_url:"https://nerdist.com/wp-content/uploads/2017/05/Ongo.jpg" )
 jeff = Superhero.create(user: blorp, name: "Jeff", superpower: "wall art and magic", backstory: "I'd rather have a free bottle in front of me than a prefrontal lobotomy.", image_url: "https://www.thesun.co.uk/wp-content/uploads/2016/11/nintchdbpict0002381335901.jpg?w=631")
+stephen = Superhero.create(user: kjoya, name: "Stephen", superpower: "kaboom-boom", backstory: "what you know about it", image_url: "http://lessthannegative.com/images/Movies/biodome1.jpg")
+kylee = Superhero.create(user: kjoya, name: "Kylee", superpower: "Kylee stuff", backstory: "Pilots the Codeship", image_url: "https://img.buzzfeed.com/buzzfeed-static/static/2015-02/4/16/campaign_images/webdr04/23-times-dw-was-the-realest-bitch-who-ever-lived-2-6727-1423086148-20_dblbig.jpg")
+sebastian = Superhero.create(user: kjoya, name: "Sebastian", superpower: "Peacin' Out", backstory: "He's all gone", image_url: "http://s1.r29static.com//bin/entry/746/x,80/1702405/image.jpg")
+
 
 
 Review.create(user: blorp, creator_username: blorp.username,  superhero: mom, rating: 3, comment: Faker::HarryPotter.quote)
