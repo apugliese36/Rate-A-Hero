@@ -8,17 +8,14 @@ class ReviewsContainer extends Component {
     this.state = {
       reviews: []
     };
-<<<<<<< HEAD
     this.newReview = this.newReview.bind(this);
+    this.deleteReview = this.deleteReview.bind(this);
   }
 
   newReview(formPayload) {
     this.setState({
       reviews: this.state.reviews.concat(formPayload)
     })
-=======
-    this.deleteReview = this.deleteReview.bind(this);
->>>>>>> 1d9b9f84a42fb58131028f8fe285bb792eae2d85
   }
 
   componentDidMount () {
@@ -55,15 +52,10 @@ class ReviewsContainer extends Component {
     let reviews = this.state.reviews.map(review => {
       return (
         <div>
-<<<<<<< HEAD
           <p>Rating: {review.rating}<br/>
           Comment: {review.comment}<br/>
           Review created by: {review.creator_username}</p>
-=======
           <button onClick={this.deleteReview}>Delete Review</button>
-          <p>Rating: {review.rating}</p>
-          <p>Review: {review.comment}</p>
->>>>>>> 1d9b9f84a42fb58131028f8fe285bb792eae2d85
         </div>
       );
     });
