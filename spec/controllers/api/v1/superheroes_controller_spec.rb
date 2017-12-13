@@ -54,4 +54,42 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       expect(returned_json['superheroes'][1]['image_url']).to eq 'hulk.com'
     end
   end
+
+  describe 'GET#show' do
+    it 'returns a single hero' do
+
+      get :show, params: {id: 1}
+      returned_json = JSON.parse(response.body)
+
+      expect(response.status).to eq 200
+      expect(response.content_type).to eq('application/json')
+
+      expect(returned_json['superhero']['name']).to eq 'Magneto'
+      expect(returned_json['superhero']['superpower']).to eq 'BENDS METAL'
+      expect(returned_json['superhero']['backstory']).to eq 'so sad'
+      expect(returned_json['superhero']['image_url']).to eq 'magneto.com'
+    end
+  end
+
+  describe 'POST#create' do
+    it 'posts a single hero' do
+
+      params = {
+        superhero: {
+          name: 'daredevil',
+          backstory: 'blind and stuff',
+          superpower: 'ninja skills',
+          image_url: 'image.png',
+          user_id: kjoya.id
+        }
+      }
+
+      current_superhero_count = Supehero.count
+
+      post :create, params: params
+      expect(Program.count).to eq(current_superhero_count + 1)
+      expect(response).to have_http_status :ok
+    end
+  end
+
 end
