@@ -10,7 +10,6 @@ class Api::V1::SuperheroesController < ApiController
     end
   end
 
-
   def index
     superheroes = Superhero.all
     render json: superheroes
