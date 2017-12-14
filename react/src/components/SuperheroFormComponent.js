@@ -9,7 +9,8 @@ class SuperheroFormComponent extends React.Component {
       backstory: '',
       superpower: '',
       imageUrl: '',
-      userId: ''
+      userId: '',
+      creator_username: ''
     };
 
     this.onNameChange = this.onNameChange.bind(this);
@@ -36,7 +37,8 @@ class SuperheroFormComponent extends React.Component {
   .then(response => response.json())
   .then(body => {
     this.setState({
-      userId: body.superheroes[0].current_user.id
+      userId: body.superheroes[0].current_user.id,
+      creator_username: body.superheroes[0].current_user.username
     });
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
