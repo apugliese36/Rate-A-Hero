@@ -46,10 +46,14 @@ class ReviewsContainer extends Component {
       credentials: 'same-origin',
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
-    }).then(
-      alert("Comment Deleted"),
-      browserHistory.push(`/superheroes`)
-    );
+    }).then(response => {
+      if (response.ok) {
+        alert("Comment Deleted"),
+        browserHistory.push('/superheroes')
+      } else {
+        alert("You may not delete this comment")
+      }
+    })
   }
 
   render () {

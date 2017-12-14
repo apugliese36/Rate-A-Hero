@@ -11,7 +11,7 @@ const ReviewTileComponent = props => {
       <p>
       Rating: {props.rating}<br/>
       Comment: {props.comment}<br/>
-      Review created by: {props.creator_username}</p>
+      Review created by: {props.username}</p>
       <button id="add" onClick={deleteReview}>Delete Review</button>
     </div>
   );
