@@ -9,10 +9,13 @@ const ReviewTileComponent = props => {
   return(
     <div id="info">
       <p>
-      Rating: {props.rating}<br/>
-      Comment: {props.comment}<br/>
-      Review created by: {props.username}</p>
+        Rating: {props.rating}<br/>
+        Comment: {props.comment}<br/>
+        Review created by: {props.username}
+      </p>
       <button id="add" onClick={deleteReview}>Delete Review</button>
+      <button id="add" onClick={props.upVote}>Like</button>
+      <button id="add" onClick={props.downVote}>Dislike</button>
     </div>
   );
 };
