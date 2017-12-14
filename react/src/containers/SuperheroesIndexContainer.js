@@ -63,7 +63,6 @@ class SuperheroesIndexContainer extends Component {
       } else {
         pageNumbers.push(i);
       }
-
     }
 
     let renderPageNumbers = pageNumbers.map(number => {
