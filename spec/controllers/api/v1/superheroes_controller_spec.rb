@@ -77,16 +77,16 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       sign_in kjoya
 
       params =
-      {
-        superhero:
-          {
-            name: 'daredevil',
-            backstory: 'blind and stuff',
-            superpower: 'ninja skills',
-            image_url: 'image.png',
-            user_id: kjoya.id
-          }
-      }
+        {
+          superhero:
+            {
+              name: 'daredevil',
+              backstory: 'blind and stuff',
+              superpower: 'ninja skills',
+              image_url: 'image.png',
+              user_id: kjoya.id
+            }
+        }
 
       expect { post :create, params: params }.to change(Superhero, :count).by(1)
     end
