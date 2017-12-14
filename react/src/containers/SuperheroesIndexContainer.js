@@ -21,7 +21,6 @@ class SuperheroesIndexContainer extends Component {
   }
 
   componentDidMount () {
-    this.setState({superheroes:[]})
   fetch('/api/v1/superheroes')
   .then(response => {
     if (response.ok) {
@@ -34,7 +33,6 @@ class SuperheroesIndexContainer extends Component {
   })
   .then(response => response.json())
   .then(body => {
-    browserHistory.push('/superheroes')
     this.setState({
       superheroes: body.superheroes
     });
