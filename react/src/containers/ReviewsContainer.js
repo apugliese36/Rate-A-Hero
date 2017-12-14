@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, IndexRoute, Router, browserHistory } from 'react-router';
-import ReviewForm from '../components/ReviewForm'
+import ReviewForm from '../components/ReviewForm';
+import ReviewTileComponent from "../components/ReviewTileComponent";
 
 class ReviewsContainer extends Component {
   constructor(props) {
@@ -38,25 +39,34 @@ class ReviewsContainer extends Component {
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
 
-  deleteReview() {
-    fetch(`/api/v1/superheroes/${this.props.params.id}/${review.id}`, {
+
+  deleteReview(id) {
+    event.preventDefault();
+    fetch(`/api/v1/reviews/${id}`, {
       credentials: 'same-origin',
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
-    }).then(
-      browserHistory.push('/superheroes')
-    );
+    }).then(response => {
+      if (response.ok) {
+        alert("Comment Deleted"),
+        browserHistory.push('/superheroes')
+      } else {
+        alert("You may not delete this comment")
+      }
+    })
   }
 
   render () {
     let reviews = this.state.reviews.map(review => {
       return (
-        <div>
-          <p>Rating: {review.rating}<br/>
-          Comment: {review.comment}<br/>
-          Review created by: {review.creator_username}</p>
-          <button onClick={this.deleteReview}>Delete Review</button>
-        </div>
+        <ReviewTileComponent
+          deleteReview = {this.deleteReview}
+          key = {review.id}
+          id = {review.id}
+          rating = {review.rating}
+          comment = {review.comment}
+          username = {review.creator_username}
+        />
       );
     });
 

@@ -18,10 +18,10 @@ describe('SuperheroTileComponent', () =>{
   });
 
   it('should render an img tag with the specific props', () => {
+    console.log(wrapper.find('img').props())
     expect(wrapper.find('img').props()).toEqual({
-      src: 'http://fakeurl.com/elephant',
-      width:'100',
-      height:'100'
+      id: 'herophoto',
+      src: 'http://fakeurl.com/elephant'
     });
   });
 
