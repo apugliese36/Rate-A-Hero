@@ -3,7 +3,7 @@ require 'spec_helper'
 
 RSpec.describe SuperheroesController, type: :controller do
 
-  let!(:kjoya) {
+  let!(:kjoya) do
     User.create(
       first_name: 'kylee',
       last_name: 'a',
@@ -12,9 +12,9 @@ RSpec.describe SuperheroesController, type: :controller do
       password: 'secrectPassword',
       encrypted_password: 'secretPassword'
     )
-  }
+  end
 
-  let!(:magneto) {
+  let!(:magneto) do
     Superhero.create(
       name: 'Magneto',
       superpower: 'BENDS METAL',
@@ -22,7 +22,7 @@ RSpec.describe SuperheroesController, type: :controller do
       image_url: 'magneto.com',
       user: kjoya
     )
-  }
+  end
 
   describe 'GET index' do
     it 'should render index template' do

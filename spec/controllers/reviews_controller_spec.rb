@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe ReviewsController, type: :controller do
-  let!(:kjoya) {
+  let!(:kjoya) do
     User.create(
       first_name: 'kylee',
       last_name: 'a',
@@ -11,9 +11,9 @@ RSpec.describe ReviewsController, type: :controller do
       password: 'secrectPassword',
       encrypted_password: 'secretPassword'
     )
-  }
+  end
 
-  let!(:hulk) {
+  let!(:hulk) do
     Superhero.create(
       name: 'Hulk',
       superpower: 'very strong',
@@ -21,14 +21,14 @@ RSpec.describe ReviewsController, type: :controller do
       image_url: 'hulk.com',
       user: kjoya
     )
-  }
+  end
 
-  let!(:review) {
+  let!(:review) do
     Review.create(
       rating: 3,
       comment: 'Hallo',
       superhero_id: hulk.id,
       user_id: kjoya.id
     )
-  }
+  end
 end
