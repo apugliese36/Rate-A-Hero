@@ -2,8 +2,7 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe Api::V1::ReviewsController, type: :controller do
-
-  let!(:kjoya) {
+  let!(:kjoya) do
     User.create(
       first_name: 'kylee',
       last_name: 'a',
@@ -12,9 +11,9 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       password: 'secrectPassword',
       encrypted_password: 'secretPassword'
     )
-  }
+  end
 
-  let!(:magneto) {
+  let!(:magneto) do
     Superhero.create(
       name: 'Magneto',
       superpower: 'BENDS METAL',
@@ -22,8 +21,9 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       image_url: 'magneto.com',
       user: kjoya
     )
-  }
-  let!(:hulk) {
+  end
+
+  let!(:hulk) do
     Superhero.create(
       name: 'Hulk',
       superpower: 'very strong',
@@ -31,20 +31,19 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       image_url: 'hulk.com',
       user: kjoya
     )
-  }
+  end
 
-  let!(:review) {
+  let!(:review) do
     Review.create(
       rating: 3,
-      comment: "Hallo",
+      comment: 'Hallo',
       superhero_id: hulk.id,
       user_id: kjoya.id
     )
-  }
+  end
 
   describe 'GET#index' do
     it 'returns a list of all the superheroes' do
-
       get :index
       returned_json = JSON.parse(response.body)
 
@@ -56,13 +55,11 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json['reviews'][0]['comment']).to eq 'Hallo'
       expect(returned_json['reviews'][0]['superhero_id']).to eq hulk.id
       expect(returned_json['reviews'][0]['user']['id']).to eq kjoya.id
-
     end
   end
 
   describe 'GET#show' do
     it 'returns a single review' do
-
       get :show, params: { id: review.id }
       returned_json = JSON.parse(response.body)
 
@@ -75,25 +72,4 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json['review']['user']['id']).to eq kjoya.id
     end
   end
-
-  # describe 'POST#create' do
-  #   it 'posts a single review' do
-  #
-  #     params = {
-  #       review:
-  #         {
-  #           rating: 1,
-  #           comment: 'so gud',
-  #           superhero_id: hulk.id,
-  #           user_id: kjoya.id
-  #         }
-  #       }
-  #
-  #     current_reviews_count = Review.count
-  #     post :create, params: params
-  #     expect(Review.count).to eq(current_reviews_count + 1)
-  #     expect(response).to have_http_status :ok
-  #   end
-  # end
-
 end

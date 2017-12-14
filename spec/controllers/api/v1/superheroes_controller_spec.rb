@@ -3,7 +3,7 @@ require 'spec_helper'
 
 RSpec.describe Api::V1::SuperheroesController, type: :controller do
 
-  let!(:kjoya) {
+  let!(:kjoya) do
     User.create(
       first_name: 'kylee',
       last_name: 'a',
@@ -12,9 +12,9 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       password: 'secrectPassword',
       encrypted_password: 'secretPassword'
     )
-  }
+  end
 
-  let!(:magneto) {
+  let!(:magneto) do
     Superhero.create(
       name: 'Magneto',
       superpower: 'BENDS METAL',
@@ -22,8 +22,9 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       image_url: 'magneto.com',
       user: kjoya
     )
-  }
-  let!(:hulk) {
+  end
+
+  let!(:hulk) do
     Superhero.create(
       name: 'Hulk',
       superpower: 'very strong',
@@ -31,7 +32,7 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       image_url: 'hulk.com',
       user: kjoya
     )
-  }
+  end
 
   describe 'GET#index' do
     it 'returns a list of all the superheroes' do
@@ -70,31 +71,4 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       expect(returned_json['superhero']['image_url']).to eq 'magneto.com'
     end
   end
-
-  # describe 'POST#create' do
-  #   it 'posts a single hero' do
-  #
-  #
-  #     params = {
-  #       superhero:
-  #         {
-  #           name: 'daredevil',
-  #           backstory: 'blind and stuff',
-  #           superpower: 'ninja skills',
-  #           image_url: 'image.png',
-  #           user_id: kjoya.id
-  #         }
-  #       }
-  #
-  #     current_superhero_count = Superhero.count
-  #     session[:user_id] = kjoya.id
-  #     post :create, params: params
-  #     # superhero: {name: 'daredevil', backstory: 'blind and stuff', superpower: 'ninja skills', image_url: 'image.png', user: kjoya}
-  #     # expect{ post(:create, params: params)}.to change{ Superhero.count }.by 1
-  #     # binding.pry
-  #     expect(Superhero.count).to eq(current_superhero_count + 1)
-  #     expect(response).to have_http_status :ok
-  #   end
-  # end
-
 end
