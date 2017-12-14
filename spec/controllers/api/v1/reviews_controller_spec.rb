@@ -1,8 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
 
-RSpec.describe Api::V1::SuperheroesController, type: :controller do
-
+RSpec.describe Api::V1::ReviewsController, type: :controller do
   let!(:kjoya) do
     User.create(
       first_name: 'kylee',
@@ -34,41 +33,43 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
     )
   end
 
+  let!(:review) do
+    Review.create(
+      rating: 3,
+      comment: 'Hallo',
+      superhero_id: hulk.id,
+      user_id: kjoya.id
+    )
+  end
+
   describe 'GET#index' do
     it 'returns a list of all the superheroes' do
-
       get :index
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq('application/json')
 
-      expect(returned_json['superheroes'].length).to eq 2
-      expect(returned_json['superheroes'][0]['name']).to eq 'Magneto'
-      expect(returned_json['superheroes'][0]['superpower']).to eq 'BENDS METAL'
-      expect(returned_json['superheroes'][0]['backstory']).to eq 'so sad'
-      expect(returned_json['superheroes'][0]['image_url']).to eq 'magneto.com'
-
-      expect(returned_json['superheroes'][1]['name']).to eq 'Hulk'
-      expect(returned_json['superheroes'][1]['superpower']).to eq 'very strong'
-      expect(returned_json['superheroes'][1]['backstory']).to eq 'epic'
-      expect(returned_json['superheroes'][1]['image_url']).to eq 'hulk.com'
+      expect(returned_json['reviews'].length).to eq 1
+      expect(returned_json['reviews'][0]['rating']).to eq 3
+      expect(returned_json['reviews'][0]['comment']).to eq 'Hallo'
+      expect(returned_json['reviews'][0]['superhero_id']).to eq hulk.id
+      expect(returned_json['reviews'][0]['user']['id']).to eq kjoya.id
     end
   end
 
   describe 'GET#show' do
-    it 'returns a single hero' do
-
-      get :show, params: { id: magneto.id }
+    it 'returns a single review' do
+      get :show, params: { id: review.id }
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq('application/json')
 
-      expect(returned_json['superhero']['name']).to eq 'Magneto'
-      expect(returned_json['superhero']['superpower']).to eq 'BENDS METAL'
-      expect(returned_json['superhero']['backstory']).to eq 'so sad'
-      expect(returned_json['superhero']['image_url']).to eq 'magneto.com'
+      expect(returned_json['review']['rating']).to eq 3
+      expect(returned_json['review']['comment']).to eq 'Hallo'
+      expect(returned_json['review']['superhero_id']).to eq hulk.id
+      expect(returned_json['review']['user']['id']).to eq kjoya.id
     end
   end
 end

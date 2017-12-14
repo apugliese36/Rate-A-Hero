@@ -4,6 +4,7 @@ class SuperheroSerializer < ActiveModel::Serializer
              :superpower,
              :backstory,
              :image_url,
+             :user_id,
              :user,
              :reviews,
              :current_user

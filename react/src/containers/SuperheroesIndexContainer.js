@@ -7,8 +7,17 @@ class SuperheroesIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      superheroes: []
+      superheroes: [],
+      currentPage: 1,
+      heroesPerPage: 2
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(event) {
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
   }
 
   componentDidMount () {
@@ -32,7 +41,11 @@ class SuperheroesIndexContainer extends Component {
 }
 
   render () {
-      let superheroes = this.state.superheroes.map(superhero => {
+    let indexOfLastHero = this.state.currentPage * this.state.heroesPerPage
+    let indexOfFirstHero = indexOfLastHero - this.state.heroesPerPage
+    let currentHeroes = this.state.superheroes.slice(indexOfFirstHero, indexOfLastHero)
+
+    let superheroes = currentHeroes.map(superhero => {
       return (
         <SuperheroTileComponent
           key={superhero.id}
@@ -42,11 +55,36 @@ class SuperheroesIndexContainer extends Component {
         />
       );
     });
+
+    let pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(this.state.superheroes.length / this.state.heroesPerPage); i++) {
+      if (this.state.currentPage === i) {
+        pageNumbers.push(`[${i}]`);
+      } else {
+        pageNumbers.push(i);
+      }
+    }
+
+    let renderPageNumbers = pageNumbers.map(number => {
+      return(
+        <li
+          key={number}
+          id={number}
+          onClick={this.handleClick}
+        >
+          {number}
+        </li>
+      );
+    });
+
     return (
       <div>
         <h1>Here are some Superheroes</h1>
           {superheroes}
           <Link to={`/superheroes/new`}>Add a Superhero</Link>
+          <ul id="page-numbers">
+            {renderPageNumbers}
+          </ul>
       </div>
     );
   }
