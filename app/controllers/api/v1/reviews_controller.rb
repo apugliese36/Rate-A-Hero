@@ -5,7 +5,7 @@ class Api::V1::ReviewsController < ApiController
 
   def require_permission
     @review = Review.find(params[:id])
-    if current_user.id != @review.user.id
+    return false if current_user.id != @review.user.id
       redirect_to :root
     end
   end
