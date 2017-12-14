@@ -16,10 +16,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :votes, only: [:index, :show, :create]
+      resources :reviews, only: [:index, :show, :create]
       resources :superheroes, only: [:index, :show, :create, :destroy, :update] do
         resources :reviews, only: [:index, :show, :create, :destroy]
       end
-      resources :reviews
     end
   end
 end

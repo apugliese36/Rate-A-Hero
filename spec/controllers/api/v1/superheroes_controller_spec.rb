@@ -71,4 +71,24 @@ RSpec.describe Api::V1::SuperheroesController, type: :controller do
       expect(returned_json['superhero']['image_url']).to eq 'magneto.com'
     end
   end
+
+  describe 'POST#create' do
+    it 'posts a single hero' do
+      sign_in kjoya
+
+      params =
+        {
+          superhero:
+            {
+              name: 'daredevil',
+              backstory: 'blind and stuff',
+              superpower: 'ninja skills',
+              image_url: 'image.png',
+              user_id: kjoya.id
+            }
+        }
+
+      expect { post :create, params: params }.to change(Superhero, :count).by(1)
+    end
+  end
 end

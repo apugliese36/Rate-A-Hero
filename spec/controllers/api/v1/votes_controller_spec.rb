@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
 
-RSpec.describe Api::V1::ReviewsController, type: :controller do
+RSpec.describe Api::V1::VotesController, type: :controller do
   let!(:kjoya) do
     User.create(
       first_name: 'kylee',
@@ -42,53 +42,40 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     )
   end
 
+  let!(:vote) do
+    Vote.create(
+      user_id: kjoya.id,
+      review_id: review.id,
+      value: 1
+    )
+  end
+
   describe 'GET#index' do
-    it 'returns a list of all the ' do
+    it 'returns a list of all the votes' do
       get :index
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq('application/json')
 
-      expect(returned_json['reviews'].length).to eq 1
-      expect(returned_json['reviews'][0]['rating']).to eq 3
-      expect(returned_json['reviews'][0]['comment']).to eq 'Hallo'
-      expect(returned_json['reviews'][0]['superhero_id']).to eq hulk.id
-      expect(returned_json['reviews'][0]['user']['id']).to eq kjoya.id
+      expect(returned_json.length).to eq 1
+      expect(returned_json[0]['user_id']).to eq kjoya.id
+      expect(returned_json[0]['review_id']).to eq review.id
+      expect(returned_json[0]['value']).to eq 1
     end
   end
 
   describe 'GET#show' do
-    it 'returns a single review' do
-      get :show, params: { id: review.id }
+    it 'returns a single vote' do
+      get :show, params: { id: vote.id }
       returned_json = JSON.parse(response.body)
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq('application/json')
 
-      expect(returned_json['review']['rating']).to eq 3
-      expect(returned_json['review']['comment']).to eq 'Hallo'
-      expect(returned_json['review']['superhero_id']).to eq hulk.id
-      expect(returned_json['review']['user']['id']).to eq kjoya.id
-    end
-  end
-
-  describe 'POST#create' do
-    it 'posts a single hero' do
-      sign_in kjoya
-
-      params =
-        {
-          review:
-            {
-              rating: 1,
-              comment: 'so gud',
-              superhero_id: hulk.id,
-              user_id: kjoya.id
-            }
-        }
-
-      expect { post :create, params: params }.to change(Review, :count).by(1)
+      expect(returned_json['user_id']).to eq kjoya.id
+      expect(returned_json['review_id']).to eq review.id
+      expect(returned_json['value']).to eq 1
     end
   end
 end
