@@ -13,7 +13,7 @@ feature 'user signs in', %(
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Sign In'
+    click_button 'Sign In!'
 
     expect(page).to have_content('Signed in')
     expect(page).to have_content('Sign Out')
@@ -24,7 +24,7 @@ feature 'user signs in', %(
     click_link 'Sign In'
     fill_in 'Email', with: 'nobody@example.com'
     fill_in 'Password', with: 'password'
-    click_button 'Sign In'
+    click_button 'Sign In!'
 
     expect(page).to have_content('Invalid Email or password.')
     expect(page).to_not have_content('Signed in')
@@ -37,7 +37,7 @@ feature 'user signs in', %(
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'incorrectPassword'
-    click_button 'Sign In'
+    click_button 'Sign In!'
 
     expect(page).to have_content('Invalid Email or password.')
     expect(page).to_not have_content('Sign Out')
@@ -48,10 +48,10 @@ feature 'user signs in', %(
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Sign In'
+    click_button 'Sign In!'
 
     expect(page).to have_content('Sign Out')
-    expect(page).to_not have_content('Sign In')
+    expect(page).to_not have_content('Sign In!')
 
     visit new_user_session_path
     expect(page).to have_content('You are already signed in.')

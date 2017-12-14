@@ -9,7 +9,10 @@ describe('SuperheroesIndexContainer', () => {
   });
 
   it('should have the specified initial state', () => {
-    expect(wrapper.state()).toEqual({ superheroes: [] });
+    expect(wrapper.state()).toEqual({
+      superheroes: [],
+      currentPage: 1,
+      heroesPerPage: 2 });
   });
 
   it('should render an Superhero Tile Component', () => {

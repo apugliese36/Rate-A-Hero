@@ -4,7 +4,8 @@ class Api::V1::SuperheroesController < ApiController
   before_action :require_permission, only: :destroy
 
   def require_permission
-    if current_user.id != Superhero.find(params[:id]).user.id
+    @superhero = Superhero.find(params[:id])
+    if current_user.id != @superhero.user.id
       redirect_to :root
     end
   end

@@ -13,7 +13,7 @@ feature 'user deletes their own account', %(
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Sign In'
+    click_button 'Sign In!'
     visit edit_user_registration_path
     click_link 'Cancel my account'
 

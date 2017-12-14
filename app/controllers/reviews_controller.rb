@@ -8,8 +8,8 @@ class ReviewsController < ApplicationController
   def show; end
 
   def destroy
-  @superhero = Superhero.find(params[:id])
-  @reviews = @superhero.reviews
-  review.delete
+    @superhero = Superhero.find(params[:id])
+    @reviews = @superhero.reviews
+    review.delete
   end
 end
