@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe SuperheroesController, type: :controller do
-
   let!(:kjoya) do
     User.create(
       first_name: 'kylee',
