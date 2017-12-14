@@ -72,4 +72,22 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json['review']['user']['id']).to eq kjoya.id
     end
   end
+
+  describe 'POST#create' do
+    it 'posts a single hero' do
+      sign_in kjoya
+
+      params = {
+      review:
+        {
+          rating: 1,
+          comment: 'so gud',
+          superhero_id: hulk.id,
+          user_id: kjoya.id
+        }
+      }
+
+      expect { post :create, params: params }.to change(Review, :count).by(1)
+    end
+  end
 end
