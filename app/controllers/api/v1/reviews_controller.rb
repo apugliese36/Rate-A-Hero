@@ -7,7 +7,6 @@ class Api::V1::ReviewsController < ApiController
     @review = Review.find(params[:id])
     return false if current_user.id != @review.user.id
       redirect_to :root
-    end
   end
 
   def index

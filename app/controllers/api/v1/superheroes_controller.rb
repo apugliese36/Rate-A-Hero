@@ -7,7 +7,6 @@ class Api::V1::SuperheroesController < ApiController
     @superhero = Superhero.find(params[:id])
     return false if current_user.id != @superhero.user.id
       redirect_to :root
-    end
   end
 
   def index
