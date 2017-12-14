@@ -5,7 +5,7 @@ class ReviewSerializer < ActiveModel::Serializer
     scope.current_user
   end
 
-  def current_user.admin?
+  def admin?
     scope.current_user.admin?
   end
 end
