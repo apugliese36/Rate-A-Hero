@@ -23,8 +23,7 @@ class Api::V1::ReviewsController < ApiController
   end
 
   def destroy
-    @superhero = Superhero.find(params[:id])
-    @review = @superhero.reviews.id
+    @review = Review.find(params[:id])
     @review.delete
   end
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, IndexRoute, Router, browserHistory } from 'react-router';
-import ReviewForm from '../components/ReviewForm'
+import ReviewForm from '../components/ReviewForm';
+import ReviewTileComponent from "../components/ReviewTileComponent";
 
 class ReviewsContainer extends Component {
   constructor(props) {
@@ -38,28 +39,30 @@ class ReviewsContainer extends Component {
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 }
 
-  deleteReview() {
+
+  deleteReview(id) {
     event.preventDefault();
-    fetch(`/api/v1/superheroes/reviews/179`, {
+    fetch(`/api/v1/reviews/${id}`, {
       credentials: 'same-origin',
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     }).then(
       alert("Comment Deleted"),
-      browserHistory.push(`/superheroes/${this.props.id}`)
+      browserHistory.push(`/superheroes`)
     );
   }
 
   render () {
     let reviews = this.state.reviews.map(review => {
       return (
-        <div id="info">
-          <p>
-          Rating: {review.rating}<br/>
-          Comment: {review.comment}<br/>
-          Review created by: {review.creator_username}</p>
-          <button id="add" onClick={this.deleteReview}>Delete Review</button>
-        </div>
+        <ReviewTileComponent
+          deleteReview = {this.deleteReview}
+          key = {review.id}
+          id = {review.id}
+          rating = {review.rating}
+          comment = {review.comment}
+          username = {review.creator_username}
+        />
       );
     });
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, IndexRoute, Router, browserHistory } from 'react-router';
 import Layout from "./components/Layout";
-import SuperheroTileComponent from "./components/SuperheroTileComponent"
-import SuperheroesIndexContainer from "./containers/SuperheroesIndexContainer"
-import SuperheroShowContainer from "./containers/SuperheroShowContainer"
-import SuperheroFormComponent from "./components/SuperheroFormComponent"
+import SuperheroTileComponent from "./components/SuperheroTileComponent";
+import SuperheroesIndexContainer from "./containers/SuperheroesIndexContainer";
+import SuperheroShowContainer from "./containers/SuperheroShowContainer";
+import SuperheroFormComponent from "./components/SuperheroFormComponent";
+import ReviewTileComponent from "./components/ReviewTileComponent";
 
 const App = props => {
   return(
