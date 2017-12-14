@@ -8,15 +8,15 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: "users/sessions"}
     namespace :admin, controllers: { sessions: "users/sessions"} do
-      resources :superheroes
+      resources :users, only: [:index]
     end
 
   resources :superheroes, only: [:index, :show, :destroy]
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :destroy]
 
   namespace :api do
     namespace :v1 do
-      resources :superheroes, only: [:index, :show, :create, :destroy] do
+      resources :superheroes, only: [:index, :show, :create, :destroy, :update] do
         resources :reviews, only: [:index, :show, :create, :destroy]
       end
       resources :reviews
