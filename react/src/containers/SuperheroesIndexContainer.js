@@ -82,7 +82,7 @@ class SuperheroesIndexContainer extends Component {
         <h1>Here are some Superheroes</h1>
           {superheroes}
           <Link to={`/superheroes/new`}>Add a Superhero</Link>
-          <ul class="pagination pagination-circuluar" role="navigation" aria-lael="Pagination">
+          <ul>
             {renderPageNumbers}
           </ul>
       </div>
