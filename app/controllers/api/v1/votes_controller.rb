@@ -12,60 +12,21 @@ class Api::V1::VotesController < ApiController
 
   def create
     vote = Vote.new(vote_params)
-    dbVote = Vote.where('user_id = ? AND review_id = ?', vote.user_id, vote.review_id)[0]
-    if dbVote
-      if dbVote.value == vote.value
-        dbVote.value = 0
-        render json: { message: "vote updated 0" }
+    db_Vote = Vote.where('user_id = ? AND review_id = ?', vote.user_id, vote.review_id)[0]
+    if db_Vote
+      if db_Vote.value == vote.value
+        db_Vote.value = 0
+        render json: { message: 'vote updated 0' }
       else
-        dbVote.value = vote.value
-        render json: { message: "vote updated 1/-1" }
+        db_Vote.value = vote.value
+        render json: { message: 'vote updated 1/-1' }
       end
-      dbVote.save
+      db_Vote.save
     else
       vote.save
-      render json: { message: "new vote created" }
+      render json: { message: 'new vote created' }
     end
-
   end
-
-
-  #   user = current_user
-  #   vote.user = user
-  #   dbVote = Vote.where('user_id = ? AND review_id = ?', vote.user_id, vote.review_id)[0]
-  #   if dbVote
-  #     if dbVote.value == vote.value
-  #       dbVote.value = 0
-  #     else
-  #       dbVote.value = vote.value
-  #     end
-  #     dbVote.save
-  #     vote = dbVote
-  #   else vote.save
-  #   end
-  #   if vote.persisted?
-  #     votes = vote.review.votes
-  #     vote.review.vote_count = votes.map(&:value).inject(0, &:+)-votes.length
-  #     vote.review.save
-  #     reviews = Superhero.find(params[:superhero_id]).reviews.order(:created_at).reverse
-  #     userVotes = Vote.where('user_id = ? AND superhero = ?', user.id, params[:superhero_id])
-  #     render json: {
-  #       reviews: reviews,
-  #       userVotes: userVotes
-  #     }
-  #   else
-  #     render json: { error: vote.errors.full_messages }, status: :unprocessable_entity
-  #   end
-  # end
-
-  #   if review.save
-  #     render json: review
-  #   else
-  #     render json:
-  #     { error: review.errors.full_messages },
-  #       status: :unprocessable_entity
-  #   end
-  # end
 
   private
 
