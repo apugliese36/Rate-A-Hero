@@ -77,14 +77,15 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     it 'posts a single hero' do
       sign_in kjoya
 
-      params = {
-      review:
-        {
-          rating: 1,
-          comment: 'so gud',
-          superhero_id: hulk.id,
-          user_id: kjoya.id
-        }
+      params =
+      {
+        review:
+          {
+            rating: 1,
+            comment: 'so gud',
+            superhero_id: hulk.id,
+            user_id: kjoya.id
+          }
       }
 
       expect { post :create, params: params }.to change(Review, :count).by(1)

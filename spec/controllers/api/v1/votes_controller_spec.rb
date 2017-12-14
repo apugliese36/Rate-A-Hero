@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe Api::V1::VotesController, type: :controller do
-
   let!(:kjoya) do
     User.create(
       first_name: 'kylee',
@@ -68,7 +67,6 @@ RSpec.describe Api::V1::VotesController, type: :controller do
 
   describe 'GET#show' do
     it 'returns a single vote' do
-
       get :show, params: { id: vote.id }
       returned_json = JSON.parse(response.body)
 
