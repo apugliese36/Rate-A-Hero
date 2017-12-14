@@ -7,8 +7,7 @@ class ReviewsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: [],
-      userVotes: []
+      reviews: []
     };
     this.newReview = this.newReview.bind(this);
     this.deleteReview = this.deleteReview.bind(this);

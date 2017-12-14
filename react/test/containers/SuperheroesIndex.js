@@ -12,7 +12,7 @@ describe('SuperheroesIndexContainer', () => {
     expect(wrapper.state()).toEqual({
       superheroes: [],
       currentPage: 1,
-      heroesPerPage: 2 });
+      heroesPerPage: 6 });
   });
 
   it('should render an Superhero Tile Component', () => {

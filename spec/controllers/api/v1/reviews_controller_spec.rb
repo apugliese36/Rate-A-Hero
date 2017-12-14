@@ -43,7 +43,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   end
 
   describe 'GET#index' do
-    it 'returns a list of all the superheroes' do
+    it 'returns a list of all the ' do
       get :index
       returned_json = JSON.parse(response.body)
 

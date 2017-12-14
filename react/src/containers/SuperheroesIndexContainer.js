@@ -9,7 +9,7 @@ class SuperheroesIndexContainer extends Component {
     this.state = {
       superheroes: [],
       currentPage: 1,
-      heroesPerPage: 2
+      heroesPerPage: 6
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -21,7 +21,6 @@ class SuperheroesIndexContainer extends Component {
   }
 
   componentDidMount () {
-    this.setState({superheroes:[]})
   fetch('/api/v1/superheroes')
   .then(response => {
     if (response.ok) {
@@ -34,7 +33,6 @@ class SuperheroesIndexContainer extends Component {
   })
   .then(response => response.json())
   .then(body => {
-    browserHistory.push('/superheroes')
     this.setState({
       superheroes: body.superheroes
     });
@@ -69,13 +67,13 @@ class SuperheroesIndexContainer extends Component {
 
     let renderPageNumbers = pageNumbers.map(number => {
       return(
-        <li
+        <button className="add"
           key={number}
           id={number}
           onClick={this.handleClick}
         >
           {number}
-        </li>
+        </button>
       );
     });
 
@@ -84,9 +82,8 @@ class SuperheroesIndexContainer extends Component {
         <h1 id="title">The Heroes</h1>
         <Link id="add" to={`/superheroes/new`}>Add a Superhero</Link>
           {superheroes}
-          <ul>
-            {renderPageNumbers}
-          </ul>
+          <hr/>
+          <footer>{renderPageNumbers}</footer>
       </div>
     );
   }
