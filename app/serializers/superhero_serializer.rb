@@ -12,7 +12,7 @@ class SuperheroSerializer < ActiveModel::Serializer
   def current_user
     scope.current_user
   end
-
+  
   def admin?
     scope.current_user.admin?
   end

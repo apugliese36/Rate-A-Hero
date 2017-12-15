@@ -3,12 +3,6 @@ class Api::V1::SuperheroesController < ApiController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :require_permission, only: [:destroy]
 
-  # def require_permission
-  #   @superhero = Superhero.find(params[:id])
-  #   return false if current_user.id != @superhero.user.id || !current_user.admin?
-  #     redirect_to :root
-  # end
-
   def index
     superheroes = Superhero.all
     render json: superheroes

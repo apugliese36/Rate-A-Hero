@@ -3,12 +3,6 @@ class Api::V1::ReviewsController < ApiController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :require_permission, only: [:destroy]
 
-  # def require_permission
-  #   @review = Review.find(params[:id])
-  #   return false if current_user.id != @review.user.id || !current_user.admin?
-  #     redirect_to :root
-  # end
-
   def index
     reviews = Review.all
     render json: reviews
