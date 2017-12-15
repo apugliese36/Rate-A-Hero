@@ -94,6 +94,9 @@ class ReviewsContainer extends Component {
    })
    .then(response => response.json())
    .then(body => {
+     this.setState({
+       reviews: body.reviews
+     });
    })
    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -110,15 +113,22 @@ class ReviewsContainer extends Component {
           rating = {review.rating}
           comment = {review.comment}
           username = {review.creator_username}
+          likes = {review.likes}
+          dislikes = {review.dislikes}
           upVote = {upVote}
           downVote = {downVote}
+          currentUser = {this.props.currentUser}
+          userId = {review.user_id}
         />
       );
     });
 
     return(
       <div>
-        {reviews}
+        <div className="text-center">
+          {reviews}
+        </div>
+        <h3 id="showtitle">Add a Review:</h3>
         <ReviewForm
           newReview = {this.newReview}
           superheroId = {this.props.id}
