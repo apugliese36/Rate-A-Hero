@@ -57,14 +57,33 @@ class SuperheroShowContainer extends Component {
 
 
   render () {
+    let deleteButton = []
+    if (this.state.user) {
+      if (this.state.user.role === 'admin') {
+        deleteButton = [<button onClick={this.handleDelete.bind(this, program)}>Delete Program</button>]
+      } else {
+        deleteButton = []
+      }
+    }
+
     return(
       <div>
         <h1 id="showtitle">{this.state.superhero.name}</h1>
-        <img id="heroshow" src={`${this.state.superhero.image_url}`} width='200' height='200'/>
-        <div id="info">{`Backstory: ${this.state.superhero.backstory}`}</div>
-        <div id="info">{`Superpower: ${this.state.superhero.superpower}`}</div>
-        <div id="info">{`Posted by: ${this.state.creator}`}</div>
-        <button id="add" onClick={this.deleteSuperhero}>Delete Superhero</button>
+        <div className="row">
+          <div className="column medium-6">
+            <button id="add" onClick={browserHistory.goBack}>Back</button>
+            <button id="add" onClick={this.deleteSuperhero}>Delete Superhero</button>
+            <div id="info2">{`Backstory: ${this.state.superhero.backstory}`}</div>
+            <div id="info2">{`Superpower: ${this.state.superhero.superpower}`}</div>
+            <div id="info2">{`Posted by: ${this.state.creator}`}</div>
+          </div>
+          <div className="column medium-6">
+            <div className="text-center">
+              <img id="heroshow" src={`${this.state.superhero.image_url}`} width='200' height='200'/>
+            </div>
+          </div>
+        </div>
+        <h2 id="showtitle">Reviews:</h2>
         <ReviewsContainer
           key={this.props.id}
           id={this.props.params.id}

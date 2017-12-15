@@ -83,7 +83,9 @@ class SuperheroesIndexContainer extends Component {
         <Link id="add" to={`/superheroes/new`}>Add a Superhero</Link>
           {superheroes}
           <hr/>
-          <footer>{renderPageNumbers}</footer>
+          <div className="text-center">
+            <footer>{renderPageNumbers}</footer>
+          </div>
       </div>
     );
   }
