@@ -7,10 +7,4 @@ class SuperheroesController < ApplicationController
     @superhero = Superhero.find(params[:id])
     @reviews = @superhero.reviews
   end
-
-  def destroy
-    @superhero = Superhero.find(params[:id])
-    @superhero.delete
-    redirect_to :root
-  end
 end

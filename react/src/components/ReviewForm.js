@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, IndexRoute, Router, browserHistory } from 'react-router';
 
-class ReviewForm extends React.Component {
+class ReviewForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,6 +52,7 @@ class ReviewForm extends React.Component {
     .then(response => response.json())
     .then(body => {
       this.props.newReview(formPayload);
+      alert("Review submitted!")
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
