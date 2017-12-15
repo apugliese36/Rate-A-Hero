@@ -15,7 +15,6 @@ class SuperheroShowContainer extends Component {
   }
 
   componentDidMount () {
-
   fetch(`/api/v1/superheroes/${this.props.params.id}`, {
     credentials: 'same-origin'
   })
@@ -37,7 +36,7 @@ class SuperheroShowContainer extends Component {
     });
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
-}
+  }
 
   deleteSuperhero(event) {
     event.preventDefault();
@@ -58,11 +57,13 @@ class SuperheroShowContainer extends Component {
 
 
   render () {
-    let deleteButton;
-    if (this.state.currentUser.id === this.state.superhero.user_id || this.state.currentUser.role === "admin") {
-      deleteButton = <button id="add" onClick={this.deleteSuperhero}>Delete Superhero</button>
-    } else {
-      deleteButton = null
+    let deleteButton = null
+    if (this.state.currentUser) {
+      if (this.state.currentUser.id === this.state.superhero.user_id || this.state.currentUser.role === "admin") {
+        deleteButton = <button id="add" onClick={this.deleteSuperhero}>Delete Superhero</button>
+      } else {
+        deleteButton = null
+      }
     }
 
     return(
