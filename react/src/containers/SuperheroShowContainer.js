@@ -57,13 +57,11 @@ class SuperheroShowContainer extends Component {
 
 
   render () {
-    let deleteButton = []
-    if (this.state.user) {
-      if (this.state.user.role === 'admin') {
-        deleteButton = [<button onClick={this.handleDelete.bind(this, program)}>Delete Program</button>]
-      } else {
-        deleteButton = []
-      }
+    let deleteButton;
+    if (this.state.currentUser.id === this.state.superhero.user_id || this.state.currentUser.role === "admin") {
+      deleteButton = <button id="add" onClick={this.deleteSuperhero}>Delete Superhero</button>
+    } else {
+      deleteButton = null
     }
 
     return(
@@ -72,7 +70,7 @@ class SuperheroShowContainer extends Component {
         <div className="row">
           <div className="column medium-6">
             <button id="add" onClick={browserHistory.goBack}>Back</button>
-            <button id="add" onClick={this.deleteSuperhero}>Delete Superhero</button>
+            {deleteButton}
             <div id="info2">{`Backstory: ${this.state.superhero.backstory}`}</div>
             <div id="info2">{`Superpower: ${this.state.superhero.superpower}`}</div>
             <div id="info2">{`Posted by: ${this.state.creator}`}</div>

@@ -117,6 +117,8 @@ class ReviewsContainer extends Component {
           dislikes = {review.dislikes}
           upVote = {upVote}
           downVote = {downVote}
+          currentUser = {this.props.currentUser}
+          userId = {review.user_id}
         />
       );
     });

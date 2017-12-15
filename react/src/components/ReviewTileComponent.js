@@ -6,6 +6,13 @@ const ReviewTileComponent = props => {
     props.deleteReview(props.id)
   }
 
+  let deleteButton;
+  if (props.currentUser.id === props.userId || props.currentUser.role === "admin") {
+    deleteButton = <button id="add" onClick={deleteReview}>Delete Review</button>
+  } else {
+    deleteButton = null
+  }
+  
   return(
     <div className="text-center">
       <div id="info">
@@ -15,7 +22,7 @@ const ReviewTileComponent = props => {
           Review created by: {props.username}<br/>
           {`Likes: ${props.likes}   Dislikes: ${props.dislikes}`}
         </p>
-        <button id="add" onClick={deleteReview}>Delete Review</button>
+        {deleteButton}
         <button id="add" onClick={props.upVote}>Like</button>
         <button id="add" onClick={props.downVote}>Dislike</button>
         <hr/>
