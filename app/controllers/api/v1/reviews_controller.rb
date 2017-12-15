@@ -1,7 +1,7 @@
 class Api::V1::ReviewsController < ApiController
   skip_before_action :verify_authenticity_token, only: [:create, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :require_permission, only: :destroy
+  before_action :require_permission, only: [:destroy]
 
   def index
     reviews = Review.all
@@ -32,7 +32,7 @@ class Api::V1::ReviewsController < ApiController
 
   def require_permission
     @review = Review.find(params[:id])
-  if current_user.id != @review.user.id && current_user.role != 'admin'
+    if current_user.id != @review.user.id && current_user.role != 'admin'
       redirect_to :root
     end
   end
@@ -42,7 +42,10 @@ class Api::V1::ReviewsController < ApiController
       :rating,
       :comment,
       :superhero_id,
-      :user_id
+      :user_id,
+      :creator_username,
+      :likes,
+      :dislikes
     )
   end
 end

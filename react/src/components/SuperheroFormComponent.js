@@ -42,7 +42,7 @@ class SuperheroFormComponent extends React.Component {
     });
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
-}
+  }
 
   onNameChange(event) {
     this.setState({ name: event.target.value });
@@ -105,6 +105,7 @@ class SuperheroFormComponent extends React.Component {
 
   render() {
     return(
+      <div>
       <form className="new-article-form callout" onSubmit={this.handleSubmit}>
         <label>Name
           <input
@@ -146,6 +147,8 @@ class SuperheroFormComponent extends React.Component {
           <input className="button" type="submit" value="Submit" />
         </div>
       </form>
+      <button id="add" onClick={browserHistory.goBack}>Back</button>
+    </div>
     );
   }
 }

@@ -32,7 +32,7 @@ class Api::V1::SuperheroesController < ApiController
 
   def require_permission
     @superhero = Superhero.find(params[:id])
-  if current_user.id != @superhero.user_id && current_user.role != 'admin'
+    if current_user.id != @superhero.user_id && current_user.role != 'admin'
       redirect_to :root
     end
   end

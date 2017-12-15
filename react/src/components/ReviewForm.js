@@ -28,7 +28,9 @@ class ReviewForm extends Component {
       comment: this.state.comment,
       superhero_id: this.props.superheroId,
       user_id: this.props.currentUser.id,
-      creator_username: this.props.currentUser.username
+      creator_username: this.props.currentUser.username,
+      likes: 0,
+      dislikes: 0
     };
     this.newReview(formPayload)
   }
