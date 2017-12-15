@@ -15,6 +15,7 @@ class SuperheroShowContainer extends Component {
   }
 
   componentDidMount () {
+
   fetch(`/api/v1/superheroes/${this.props.params.id}`, {
     credentials: 'same-origin'
   })
