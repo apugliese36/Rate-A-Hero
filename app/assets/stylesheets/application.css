@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ ul {
+   margin-left: 25px;
+   margin-bottom: 0px;
+ }
  .top-bar {
    color:#313131;
    text-rendering: optimizeLegibility;
@@ -97,7 +101,7 @@ body{
    padding: 1em;
    margin: 1em;
    border-width: 1px;
-   border-radius: 40%;
+   border-radius: 7%;
    border-color: black;
    border-style: solid;
  }
@@ -108,7 +112,7 @@ body{
    padding: 1em;
    margin: 1em;
    border-width: 1px;
-   border-radius: 40%;
+   border-radius: 7%;
    border-color: black;
    border-style: solid;
  }
@@ -117,10 +121,11 @@ body{
    background-color: #1779BA;
    color: white;
    border-width: 1px;
-   border-radius: 40%;
+   border-radius: 7%;
    border-color: black;
    border-style: solid;
    padding: 10px;
+   margin-top: 5px;
  }
 
  #herophoto {
@@ -165,6 +170,7 @@ body{
  #showtitle{
    text-align: center;
    background-color: #186273;
+   margin-top: 0;
  }
 
  #notice{
