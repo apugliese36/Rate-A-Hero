@@ -17,19 +17,18 @@ class ReviewsContainer extends Component {
   }
 
   deleteReview(id) {
-    event.preventDefault();
     fetch(`/api/v1/reviews/${id}`, {
       credentials: 'same-origin',
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     }).then(response => {
       if (response.ok) {
-        alert("Comment Deleted"),
-        browserHistory.push('/superheroes')
+        alert("Comment Deleted")
       } else {
         alert("You may not delete this comment")
       }
     })
+    this.getReviews();
   }
 
   newReview(formPayload) {
@@ -38,24 +37,28 @@ class ReviewsContainer extends Component {
     })
   }
 
+  getReviews() {
+    fetch(`/api/v1/superheroes/${this.props.id}`)
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        reviews: body.superhero.reviews
+      });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   componentDidMount () {
-  fetch(`/api/v1/superheroes/${this.props.id}`)
-  .then(response => {
-    if (response.ok) {
-      return response;
-    } else {
-      let errorMessage = `${response.status} (${response.statusText})`,
-      error = new Error(errorMessage);
-      throw(error);
-    }
-  })
-  .then(response => response.json())
-  .then(body => {
-    this.setState({
-      reviews: body.superhero.reviews
-    });
-  })
-  .catch(error => console.error(`Error in fetch: ${error.message}`));
+    this.getReviews()
   }
 
   upVote(reviewId) {
