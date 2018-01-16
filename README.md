@@ -25,7 +25,7 @@ Things you may want to cover:
 
 * Authors: Dan Farrell, Cara Miller, Jeff Comer, Antonio Pugliese
 
-* Heroku link:
+* Heroku link: Rate-A-Superhero.herokuapp.com
 
 * Features:
 -Add a super hero
