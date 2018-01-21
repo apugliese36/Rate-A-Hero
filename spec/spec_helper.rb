@@ -30,7 +30,10 @@ SimpleCov.start do
   add_filter 'app/helpers'
   add_filter 'app/controllers/users'
   add_filter 'app/serializer'
-  # add_filter 'app/controllers/admin'
+  # add_filter 'app/controllers/api/v1/votes_controller'
+  add_filter 'app/controllers/reviews_controller'
+  add_filter 'app/controllers/superheroes_controller'
+  add_filter 'app/controllers/votes_controller'
 end
 
 RSpec.configure do |config|
